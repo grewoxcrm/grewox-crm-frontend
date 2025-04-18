@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Table, Tag, Space, Button, Avatar, Tooltip, Dropdown, Modal, message } from 'antd';
 import { FiCheckSquare, FiCalendar, FiEdit2, FiTrash2, FiMoreVertical, FiPhone } from 'react-icons/fi';
 import dayjs from 'dayjs';
-import './followupcall.scss';
+import './followupCall.scss';
 import { useGetFollowupCallsQuery, useDeleteFollowupCallMutation } from './services/followupCallApi';
 // import EditFollowupCall from './EditfollowupCall';
 

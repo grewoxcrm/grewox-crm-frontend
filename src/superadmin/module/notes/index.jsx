@@ -22,7 +22,7 @@ import {
   FiList,
   FiHome,
 } from "react-icons/fi";
-import "./notes.scss";
+import "./Notes.scss";
 import moment from "moment";
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";

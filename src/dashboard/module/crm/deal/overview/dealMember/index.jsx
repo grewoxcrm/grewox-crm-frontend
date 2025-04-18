@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Card, Table, Typography, Button, Space, Avatar, Tag, Tooltip, Modal, Form, Input, Select, message, Divider } from 'antd';
 import { FiPlus, FiTrash2, FiMail, FiPhone, FiStar, FiX, FiUserPlus, FiShield, FiUser, FiBriefcase } from 'react-icons/fi';
-import { useUpdateDealMutation, useGetDealsQuery } from '../../services/dealApi';
+import { useUpdateDealMutation, useGetDealsQuery } from '../../services/DealApi';
 import { useGetUsersQuery } from "../../../../user-management/users/services/userApi";
 import { useGetRolesQuery } from "../../../../hrm/role/services/roleApi";
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../../../../auth/services/authSlice';
 import CreateUser from '../../../../user-management/users/CreateUser';
-import './dealMember.scss';
+import './dealmember.scss';
 
 const { Text } = Typography;
 const { Option } = Select;

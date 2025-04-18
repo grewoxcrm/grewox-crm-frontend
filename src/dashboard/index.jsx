@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useGetAllCurrenciesQuery } from "./module/settings/services/settingsApi";
 import { useGetAllTasksQuery } from "./module/crm/task/services/taskApi";
 import { useGetLeadsQuery } from "./module/crm/lead/services/LeadApi";
-import { useGetDealsQuery } from "./module/crm/deal/services/dealApi";
+import { useGetDealsQuery } from "./module/crm/deal/services/DealApi";
 import { useGetStatusesQuery } from "./module/crm/crmsystem/souce/services/SourceApi";
 import { useNavigate } from "react-router-dom";
 import { useGetLeadStagesQuery } from "./module/crm/crmsystem/leadstage/services/leadStageApi";

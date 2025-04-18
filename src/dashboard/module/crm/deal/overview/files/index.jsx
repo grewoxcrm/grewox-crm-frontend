@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Typography, Button, Space, message, Modal, Upload, Empty, Divider } from 'antd';
 import { FiPlus, FiTrash2, FiX, FiUpload, FiDownload, FiFile, FiFileText, FiImage } from 'react-icons/fi';
-import { useGetDealQuery, useUploadDealFilesMutation, useDeleteDealFileMutation } from '../../services/dealApi';
+import { useGetDealQuery, useUploadDealFilesMutation, useDeleteDealFileMutation } from '../../services/DealApi';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../../../../auth/services/authSlice';
 import './files.scss';

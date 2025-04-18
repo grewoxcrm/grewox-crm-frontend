@@ -4,7 +4,7 @@ import { FiCalendar, FiUser, FiClock, FiFilter } from 'react-icons/fi';
 import { useGetAllAttendancesQuery } from './services/attendanceApi';
 import { useGetEmployeesQuery } from '../Employee/services/employeeApi';
 import { useGetAllHolidaysQuery } from '../Holiday/services/holidayApi';
-import { useGetLeaveQuery } from '../leave/services/LeaveApi'; // Added leave API import
+import { useGetLeaveQuery } from '../leave/services/leaveApi'; // Added leave API import
 import dayjs from 'dayjs';
 import './attendance.scss';
 

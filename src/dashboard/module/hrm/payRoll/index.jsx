@@ -16,7 +16,7 @@ import {
     FiDownload,
     FiHome,
 } from 'react-icons/fi';
-import './salary.scss';
+import './Salary.scss';
 import dayjs from 'dayjs';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';

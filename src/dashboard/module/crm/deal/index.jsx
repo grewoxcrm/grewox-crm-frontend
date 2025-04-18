@@ -16,7 +16,7 @@ import DealList from './DealList';
 import EditDeal from './EditDeal';
 import { useGetPipelinesQuery } from "../crmsystem/pipeline/services/pipelineApi";
 import { useGetLeadStagesQuery } from "../crmsystem/leadstage/services/leadStageApi";
-import { useDeleteDealMutation, useGetDealsQuery } from './services/dealApi';
+import { useDeleteDealMutation, useGetDealsQuery } from './services/DealApi';
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import "jspdf-autotable";

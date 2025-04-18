@@ -8,7 +8,7 @@ import {
     useUpdateNotesMutation,
     useDeleteNotesMutation,
     useGetAllNotesQuery
-} from '../../../../../../superadmin/module/notes/services/notesApi';
+} from '../../../../../../superadmin/module/notes/services/NotesApi';
 import './notes.scss';
 
 const { TextArea } = Input;

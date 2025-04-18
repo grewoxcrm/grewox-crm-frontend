@@ -14,7 +14,7 @@ import {
 } from "antd";
 import { FiFileText, FiX, FiCalendar, FiUser, FiTag } from "react-icons/fi";
 import dayjs from "dayjs";
-import { useUpdateLeaveMutation } from "./services/LeaveApi";
+import { useUpdateLeaveMutation } from "./services/leaveApi";
 import { useGetEmployeesQuery } from "../Employee/services/employeeApi";
 import "./leave.scss";
 

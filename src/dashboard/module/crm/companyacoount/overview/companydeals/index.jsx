@@ -23,7 +23,7 @@ import { useGetLabelsQuery, useGetSourcesQuery } from "../../../crmsystem/souce/
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../../../../auth/services/authSlice";
 import { useGetAllCurrenciesQuery } from '../../../../../module/settings/services/settingsApi';
-import { useGetDealsQuery } from "../../../deal/services/dealApi";
+import { useGetDealsQuery } from "../../../deal/services/DealApi";
 import { useNavigate } from "react-router-dom";
 
 const { Text } = Typography;

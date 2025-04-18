@@ -9,7 +9,7 @@ import superadminProfileReducer from "../superadmin/module/profile/services/supe
 import { settingsApi } from "../superadmin/module/settings/services/settingsApi.js";
 import { planApi } from "../superadmin/module/plans/services/planApi.js";
 import { policyApi } from "../superadmin/module/policy/service/policyApi.js";
-import { notesApi } from "../superadmin/module/notes/services/notesApi.js";
+import { notesApi } from "../superadmin/module/notes/services/NotesApi.js";
 import { inquiryApi } from "../superadmin/module/inquary/services/inquaryApi.js";
 import { dealInvoiceApi } from "../dashboard/module/crm/deal/overview/invoices/services/dealinvoiceApi.js";
 import { subclientApi } from "../dashboard/module/user-management/subclient/services/subClientApi.js";
@@ -34,13 +34,13 @@ import { offerLetterApi } from "../dashboard/module/job/offer letters/services/o
 import { interviewApi } from "../dashboard/module/job/interviews/services/interviewApi.js";
 import { documentApi } from "../dashboard/module/hrm/Document/services/documentApi";
 import { leadApi } from "../dashboard/module/crm/lead/services/LeadApi.js";
-import { dealApi } from "../dashboard/module/crm/deal/services/dealApi.js";
+import { dealApi } from "../dashboard/module/crm/deal/services/DealApi.js";
 import { creditNoteApi } from "../dashboard/module/sales/creditnotes/services/creditNoteApi.js";
 import { customerApi } from "../dashboard/module/sales/customer/services/custApi.js";
 import { invoiceApi } from "../dashboard/module/sales/invoice/services/invoiceApi.js";
 import { revenueApi } from "../dashboard/module/sales/revenue/services/revenueApi.js";
 import { productApi } from "../dashboard/module/sales/product&services/services/productApi.js";
-import { leaveApi } from "../dashboard/module/hrm/leave/services/LeaveApi.js";
+import { leaveApi } from "../dashboard/module/hrm/leave/services/leaveApi.js";
 import { dealPaymentApi } from "../dashboard/module/crm/deal/overview/payments/services/dealpaymentApi.js";
 import { subscribedUserApi } from "../superadmin/module/SubscribedUser/services/SubscribedUserApi.js";
 import { ticketApi } from "../dashboard/module/support/ticket/services/ticketApi.js";
