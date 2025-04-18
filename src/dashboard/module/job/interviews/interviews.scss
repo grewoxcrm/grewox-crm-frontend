@@ -1,0 +1,482 @@
+@import '../../../../styles/theme/theme.scss';
+
+.interviews-page {
+    padding: 24px;
+    background: $background-color;
+
+    .page-breadcrumb {
+        margin-bottom: 24px;
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            .ant-breadcrumb-link {
+                color: $text-color-light;
+                transition: all 0.3s ease;
+
+                a {
+                    color: $text-color-light;
+                    display: inline-flex;
+                    align-items: center;
+
+                    &:hover {
+                        color: #1677ff;
+                    }
+                }
+
+                &:last-child {
+                    color: $text-color-dark;
+                    font-weight: 500;
+                }
+            }
+
+            .ant-breadcrumb-separator {
+                margin: 0 8px;
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .page-header {
+        margin-bottom: 24px;
+        background: white;
+        padding: 24px 32px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .page-title {
+            h2 {
+                color: $text-color-dark;
+                margin-bottom: 4px;
+                font-size: 28px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .ant-typography-secondary {
+                color: $text-color-light;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .interviews-content {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 24px;
+
+        .upcoming-interviews {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+            .section-header {
+                margin-bottom: 16px;
+
+                h4 {
+                    display: flex;
+                    align-items: center;
+                    color: $text-color-dark;
+                    margin: 0;
+                }
+            }
+
+            .interview-cards {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 8px;
+            }
+
+            .interview-card {
+                display: flex;
+                align-items: center;
+                padding: 16px;
+                background: white;
+                border-radius: 8px;
+                border-left: 4px solid #1890ff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .card-content {
+                    flex: 1;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 16px;
+
+                    .candidate-info {
+                        flex: 1;
+
+                        .candidate-name {
+                            font-size: 16px;
+                            font-weight: 500;
+                            color: #2c3e50;
+                            margin-bottom: 4px;
+                        }
+
+                        .interview-datetime {
+                            font-size: 13px;
+                            color: #666;
+                            line-height: 1.5;
+                        }
+                    }
+
+                    .delete-button {
+                        width: 32px;
+                        height: 32px;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 6px;
+                        color: #ff4d4f;
+                        background: transparent;
+                        border: 1px solid #ff4d4f;
+
+                        &:hover {
+                            background: #ff4d4f;
+                            color: white;
+                        }
+
+                        svg {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .calendar-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+            .ant-picker-calendar {
+                .ant-picker-panel {
+                    border-top: none;
+                }
+
+                .ant-picker-calendar-header {
+                    padding: 12px 16px;
+                    border-bottom: 1px solid $border-color;
+                }
+
+                .ant-picker-content {
+                    th {
+                        padding: 12px 0;
+                        font-weight: 600;
+                    }
+
+                    td {
+                        &.ant-picker-cell-selected {
+                            .ant-picker-cell-inner {
+                                background: #1677ff;
+                            }
+                        }
+                    }
+                }
+
+                // Calendar date selection styling
+                .ant-picker-cell {
+
+                    // Selected date styling
+                    &-selected .ant-picker-calendar-date {
+                        background: #f0f7ff !important;
+                        color: #1890ff !important;
+                        border-color: #e6f4ff !important;
+
+                        &:hover {
+                            background: #e6f4ff !important;
+                        }
+                    }
+
+                    // Today's date styling
+                    &-today .ant-picker-calendar-date {
+                        border-color: #e6f4ff !important;
+
+                        .ant-picker-calendar-date-value {
+                            color: #1890ff !important;
+                        }
+                    }
+
+                    // Hover effect for dates
+                    .ant-picker-calendar-date {
+                        &:hover {
+                            background: #f5f5f5 !important;
+                        }
+                    }
+
+                    // Selected date content styling
+                    &-selected .ant-picker-calendar-date-value {
+                        color: #1890ff !important; // Keep text blue for visibility
+                    }
+                }
+
+                // Remove the default blue background
+                .ant-picker-calendar-date-today {
+                    border-color: #e6f4ff !important;
+                }
+            }
+
+            // For any additional calendar elements
+            .ant-picker-cell-in-view {
+                &.ant-picker-cell-selected .ant-picker-cell-inner {
+                    background: #f0f7ff !important;
+                    color: #1890ff !important;
+                    border-color: #e6f4ff !important;
+                }
+
+                &.ant-picker-cell-today .ant-picker-cell-inner::before {
+                    border-color: #e6f4ff !important;
+                }
+            }
+
+            .events {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                .interview-badge {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    font-size: 12px;
+                    padding: 2px 0;
+
+                    .ant-badge-status-dot {
+                        width: 6px;
+                        height: 6px;
+                    }
+
+                    .ant-badge-status-text {
+                        margin-left: 6px;
+                    }
+                }
+            }
+
+            .interview-cell {
+                .interview-item {
+                    margin-bottom: 4px;
+
+                    .interview-details {
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                        background: #f8fafc;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            background: #f0f7ff;
+                        }
+
+                        .interview-time {
+                            font-weight: 500;
+                            font-size: 12px;
+                            color: #1890ff;
+                        }
+
+                        .interview-candidate {
+                            font-size: 12px;
+                            margin: 2px 0;
+                            color: #333;
+                        }
+
+                        .interview-type {
+                            font-size: 11px;
+                            color: #666;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 1200px) {
+    .interviews-page {
+        .interviews-content {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .interviews-page {
+        padding: 16px;
+
+        .page-header {
+            padding: 16px;
+        }
+    }
+}
+
+.interview-modal {
+    .modal-header {
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        padding: 24px;
+        color: #ffffff;
+        position: relative;
+        border-radius: 8px 8px 0 0;
+
+        .close-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            .header-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(8px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font-size: 24px;
+                    color: #ffffff;
+                }
+            }
+
+            .header-text {
+                h2 {
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: #ffffff;
+                }
+
+                .ant-typography {
+                    font-size: 14px;
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+        }
+    }
+
+    .interview-form {
+        padding: 24px;
+
+        .ant-form-item {
+            margin-bottom: 24px;
+
+            .ant-form-item-label {
+                padding-bottom: 8px;
+
+                label {
+                    font-weight: 500;
+                    color: $text-color-dark;
+                }
+            }
+
+            .ant-input,
+            .ant-select-selector,
+            .ant-picker {
+                border-radius: 8px;
+                height: 40px;
+                border: 1px solid #e6e8eb;
+                background-color: #f8fafc;
+
+
+            }
+
+            .ant-input-prefix {
+                color: #1890ff;
+                margin-right: 8px;
+            }
+
+            textarea.ant-input {
+                height: auto;
+                min-height: 100px;
+            }
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+
+            .ant-btn {
+                height: 40px;
+                padding: 0 24px;
+                border-radius: 8px;
+                font-weight: 500;
+
+                &-primary {
+                    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                    border: none;
+                    color: white;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Popconfirm styling
+.ant-popconfirm {
+    .ant-popconfirm-message {
+        padding: 16px;
+
+        .ant-popconfirm-title {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .ant-popconfirm-description {
+            color: #666;
+        }
+    }
+
+    .ant-popconfirm-buttons {
+        padding: 0 16px 16px;
+
+        .ant-btn {
+            border-radius: 6px;
+            height: 32px;
+
+            &-primary {
+                background: #ff4d4f;
+                border-color: #ff4d4f;
+
+                &:hover {
+                    background: #ff7875;
+                    border-color: #ff7875;
+                }
+            }
+        }
+    }
+}

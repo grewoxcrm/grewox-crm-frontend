@@ -1,0 +1,239 @@
+.deal-activity {
+    .ant-card {
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+            
+            .card-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                .title-section {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #1a1a1a;
+
+                    .ant-badge {
+                        margin-left: 8px;
+                    }
+                }
+
+                .filter-section {
+                    display: flex;
+                    align-items: center;
+                    // gap: 10px;
+
+                    .ant-select {
+                        .ant-select-selector {
+                            height: 32px;
+                            border-radius: 4px;
+                            background-color: #fafafa;
+                            border: 1px solid #d9d9d9;
+                            
+                            &:hover {
+                                border-color: #40a9ff;
+                            }
+                            
+                            &:focus {
+                                border-color: #40a9ff;
+                                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                            }
+                        }
+                    }
+
+                    .ant-input-search {
+                        width: 300px;
+                        
+                        .ant-input {
+                            height: 32px;
+                            border-radius: 4px;
+                            background-color: #fafafa;
+                            border: 1px solid #d9d9d9;
+                            
+                            &:hover {
+                                border-color: #40a9ff;
+                            }
+                            
+                            &:focus {
+                                border-color: #40a9ff;
+                                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                            }
+                        }
+
+                        .ant-input-group-addon {
+                            .ant-btn {
+                                height: 32px;
+                                border-radius: 0 4px 4px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .ant-card-body {
+            padding: 24px;
+        }
+    }
+
+    .ant-timeline {
+        .ant-timeline-item {
+            padding-bottom: 24px;
+
+            .ant-timeline-item-tail {
+                border-left: 2px solid #f0f0f0;
+            }
+
+            .ant-timeline-item-head {
+                width: 12px;
+                height: 12px;
+                border: 2px solid transparent;
+                background-color: #fff;
+            }
+
+            .timeline-dot {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background-color: #fff;
+                border: 2px solid currentColor;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .activity-item {
+        margin-left: 16px;
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        .activity-content {
+            .activity-header {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 12px;
+
+                .ant-tag {
+                    margin: 0;
+                    padding: 2px 8px;
+                    font-size: 12px;
+                    border-radius: 4px;
+                }
+
+                h4 {
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #1a1a1a;
+                }
+            }
+
+            .activity-meta {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 12px;
+
+                .user-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    color: #666;
+
+                    .anticon {
+                        font-size: 14px;
+                    }
+
+                    .ant-avatar {
+                        background-color: #f0f0f0;
+                        color: #666;
+                    }
+                }
+
+                .timestamp {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    color: #999;
+                    font-size: 12px;
+
+                    .anticon {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .activity-description {
+                color: #666;
+                font-size: 13px;
+                line-height: 1.5;
+                margin-top: 8px;
+                padding-top: 8px;
+                border-top: 1px solid #f0f0f0;
+            }
+        }
+    }
+
+    // Loading state
+    .ant-spin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+    }
+
+    // Empty state
+    .ant-empty {
+        padding: 40px 0;
+    }
+
+    // Error state
+    .error-message {
+        text-align: center;
+        padding: 40px 0;
+        color: #ff4d4f;
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .deal-activity {
+        .ant-card {
+            .ant-card-head {
+                .card-header {
+                    flex-direction: column;
+                    gap: 16px;
+
+                    .title-section {
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+
+                    .filter-section {
+                        width: 100%;
+                        flex-direction: column;
+                        
+                        .ant-select,
+                        .ant-input-search {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

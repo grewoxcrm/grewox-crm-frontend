@@ -1,0 +1,434 @@
+// Variables
+$primary-color: #1890ff;
+$secondary-color: #52c41a;
+$danger-color: #ff4d4f;
+$border-color: #e6e8eb;
+$text-color: #1f2937;
+$text-secondary: #6b7280;
+$bg-light: #f8fafc;
+$transition: all 0.3s ease;
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$radius-sm: 8px;
+$radius-md: 12px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Main Layout
+.mail-layout {
+  height: calc(100vh - 64px);
+  background: $bg-light;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  margin: 16px;
+
+  // Sidebar
+  .mail-sider {
+    background: white;
+    border-right: 1px solid $border-color;
+    height: 100%;
+    overflow: hidden;
+
+    .mail-filters {
+      padding: 20px;
+
+      .compose-button {
+        height: 48px;
+        border-radius: $radius-sm;
+        font-weight: 500;
+        background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+        border: none;
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+        margin-bottom: 24px;
+        transition: $transition;
+
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 16px rgba(24, 144, 255, 0.2);
+        }
+      }
+
+      .ant-menu {
+        border: none;
+        background: transparent;
+
+        .ant-menu-item {
+          height: 44px;
+          margin: 4px 0;
+          border-radius: $radius-sm;
+          padding: 0 16px;
+          transition: $transition;
+
+          &:hover {
+            background: rgba($primary-color, 0.06);
+          }
+
+          &.ant-menu-item-selected {
+            background: rgba($primary-color, 0.1);
+            color: $primary-color;
+            font-weight: 500;
+          }
+
+          .anticon {
+            font-size: 18px;
+          }
+
+          .ant-badge {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  // Main Content
+  .mail-content {
+    background: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    // Header
+    .mail-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid $border-color;
+      @include flex-between;
+
+      .header-actions {
+        display: flex;
+        gap: 8px;
+
+        .ant-btn {
+          width: 36px;
+          height: 36px;
+          border-radius: $radius-sm;
+          @include flex-center;
+          border: 1px solid $border-color;
+          transition: $transition;
+
+          &:hover {
+            background: $bg-light;
+            border-color: $primary-color;
+            color: $primary-color;
+          }
+        }
+      }
+
+      .search-wrapper {
+        flex: 1;
+        max-width: 480px;
+        margin: 0 24px;
+
+        .ant-input-affix-wrapper {
+          border-radius: $radius-sm;
+          height: 40px;
+          background: $bg-light;
+          border: 1px solid $border-color;
+          transition: $transition;
+
+          &:hover, &:focus-within {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+          }
+
+          .anticon {
+            color: $text-secondary;
+          }
+        }
+      }
+    }
+
+    // Email List
+    .mail-list {
+      flex: 1;
+      overflow: auto;
+      padding: 12px;
+
+      .mail-item {
+        padding: 16px;
+        border-radius: $radius-sm;
+        margin-bottom: 8px;
+        border: 1px solid transparent;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+          background: $bg-light;
+          border-color: $border-color;
+        }
+
+        &.unread {
+          background: white;
+          border-color: $border-color;
+          box-shadow: $shadow-sm;
+
+          .ant-list-item-meta-title {
+            font-weight: 600;
+          }
+        }
+
+        &.trash {
+          opacity: 0.7;
+        }
+
+        .ant-list-item-meta {
+          align-items: center;
+
+          .ant-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: $radius-sm;
+            background: $primary-color;
+            font-weight: 500;
+          }
+
+          .ant-list-item-meta-content {
+            flex: 1;
+            margin-left: 16px;
+
+            .ant-list-item-meta-title {
+              margin: 0;
+              color: $text-color;
+              font-size: 14px;
+            }
+
+            .mail-item-content {
+              @include flex-between;
+              color: $text-secondary;
+              font-size: 13px;
+              margin-top: 4px;
+            }
+          }
+        }
+
+        .ant-list-item-action {
+          margin-left: 24px;
+
+          .ant-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: $radius-sm;
+            @include flex-center;
+            border: 1px solid $border-color;
+            transition: $transition;
+
+            &:hover {
+              background: $bg-light;
+              border-color: $primary-color;
+              color: $primary-color;
+            }
+
+            &.starred {
+              color: #faad14;
+              border-color: #faad14;
+            }
+
+            &.important {
+              color: $danger-color;
+              border-color: $danger-color;
+            }
+
+            &.restore-btn {
+              color: $secondary-color;
+              border-color: $secondary-color;
+
+              &:hover {
+                background: rgba($secondary-color, 0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Modals
+.compose-modal {
+  .ant-modal-content {
+    border-radius: $radius-md;
+    overflow: hidden;
+    padding: 0;
+
+    .ant-modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid $border-color;
+      margin: 0;
+
+      .compose-header {
+        @include flex-center;
+        gap: 12px;
+
+        .header-icon {
+          font-size: 20px;
+          color: $primary-color;
+        }
+      }
+    }
+
+    .ant-modal-body {
+      padding: 24px;
+
+      .compose-toolbar {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid $border-color;
+      }
+
+      .template-fields {
+        background: $bg-light;
+        padding: 16px;
+        border-radius: $radius-sm;
+        margin-bottom: 24px;
+      }
+
+      .attachments-preview {
+        margin-top: 16px;
+        padding: 12px;
+        background: $bg-light;
+        border-radius: $radius-sm;
+
+        .attachment-item {
+          @include flex-between;
+          padding: 8px;
+          background: white;
+          border-radius: $radius-sm;
+          margin-bottom: 8px;
+          border: 1px solid $border-color;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.schedule-modal {
+  .ant-modal-content {
+    border-radius: $radius-md;
+    
+    .ant-modal-body {
+      padding: 24px;
+
+      .ant-space {
+        width: 100%;
+
+        .ant-picker {
+          width: 100%;
+          height: 40px;
+          border-radius: $radius-sm;
+        }
+      }
+    }
+  }
+
+  .ant-picker {
+    height: 40px;
+    border-radius: 8px;
+    
+    &:hover, &:focus {
+      border-color: $primary-color;
+    }
+  }
+
+  .ant-picker-input {
+    input {
+      font-size: 14px;
+      
+      &::placeholder {
+        color: #999;
+      }
+    }
+  }
+}
+
+.time-picker-popup {
+  .ant-picker-time-panel {
+    .ant-picker-time-panel-cell {
+      &-selected {
+        background: $primary-color;
+        color: white;
+      }
+    }
+  }
+
+  .ant-picker-footer {
+    .ant-picker-ranges {
+      .ant-picker-now-btn {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.settings-modal {
+  .ant-modal-content {
+    border-radius: $radius-md;
+    overflow: hidden;
+    padding: 0;
+
+    .ant-modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid $border-color;
+      margin: 0;
+
+      .settings-header {
+        @include flex-center;
+        gap: 12px;
+
+        .header-icon {
+          font-size: 20px;
+          color: $primary-color;
+        }
+      }
+    }
+
+    .ant-modal-body {
+      padding: 24px;
+
+      .settings-form {
+        .ant-form-item {
+          margin-bottom: 24px;
+
+          .ant-input-affix-wrapper {
+            height: 40px;
+            border-radius: $radius-sm;
+            
+            .anticon {
+              color: $text-secondary;
+            }
+          }
+
+          .ant-form-item-extra {
+            font-size: 12px;
+            color: $text-secondary;
+            margin-top: 4px;
+          }
+        }
+
+        .form-actions {
+          @include flex-between;
+          margin-top: 32px;
+
+          .ant-btn {
+            min-width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

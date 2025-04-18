@@ -1,0 +1,77 @@
+.project-overview {
+    .stat-card {
+        height: 100%;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ant-statistic {
+            .ant-statistic-title {
+                color: #6b7280;
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+
+            .ant-statistic-content {
+                color: #1f2937;
+                font-size: 24px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .stat-icon {
+                    color: #1890ff;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .progress-section {
+        .progress-item {
+            margin-bottom: 24px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .progress-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                color: #4b5563;
+                font-size: 14px;
+            }
+
+            .ant-progress {
+                line-height: 1;
+            }
+        }
+    }
+
+    .ant-timeline {
+        padding: 8px;
+
+        .ant-timeline-item {
+            padding-bottom: 20px;
+
+            &-content {
+                color: #4b5563;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .project-overview {
+        .stat-card {
+            margin-bottom: 16px;
+        }
+    }
+}

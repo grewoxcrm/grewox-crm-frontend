@@ -1,0 +1,152 @@
+.company-inquiry-container {
+    padding: 24px;
+
+    .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover[data-menu-id*=delete] {
+        background: rgba(255, 77, 79, 0.08) !important;
+    }
+
+    .page-header {
+        margin-bottom: 24px;
+
+        .breadcrumb {
+            margin-bottom: 16px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+
+            .title-section {
+                .page-title {
+                    margin-bottom: 4px;
+                }
+            }
+
+            .action-section {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+
+                .search-input {
+                    width: 300px;
+                }
+
+                .ant-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    .anticon,
+                    svg {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.company-inquiry-list {
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-start;
+
+        .action-button {
+            padding: 4px 8px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.delete {
+                color: #ff4d4f;
+
+                &:hover {
+                    color: #ff7875;
+                    background: rgba(255, 77, 79, 0.1);
+                }
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.04);
+            }
+        }
+    }
+}
+
+// Modal Form Styles
+.ant-modal {
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .ant-form-item {
+        margin-bottom: 16px;
+    }
+
+    textarea.ant-input {
+        resize: vertical;
+        min-height: 60px;
+    }
+}
+
+// Status Tag Colors
+.ant-tag {
+    text-transform: capitalize;
+    min-width: 80px;
+    text-align: center;
+
+    &-blue {
+        color: #1890ff;
+        background: #e6f7ff;
+        border-color: #91d5ff;
+    }
+
+    &-orange {
+        color: #fa8c16;
+        background: #fff7e6;
+        border-color: #ffd591;
+    }
+
+    &-green {
+        color: #52c41a;
+        background: #f6ffed;
+        border-color: #b7eb8f;
+    }
+
+    &-red {
+        color: #ff4d4f;
+        background: #fff1f0;
+        border-color: #ffa39e;
+    }
+}
+
+// Responsive Styles
+@media (max-width: 768px) {
+    .company-inquiry-container {
+        .header {
+            flex-direction: column;
+            gap: 16px;
+
+            .right {
+                width: 100%;
+                flex-wrap: wrap;
+
+                .search-input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .ant-modal {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+}

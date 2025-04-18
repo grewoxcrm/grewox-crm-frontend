@@ -1,0 +1,99 @@
+@import './theme/theme.scss';
+
+
+.ant-modal-content {
+    padding: 0 !important;
+}
+
+*:focus {
+    outline: none;
+}
+
+:where(.css-dev-only-do-not-override-240cud).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item.ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover,
+:where(.css-dev-only-do-not-override-240cud).ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-item.ant-dropdown-menu-item-danger:not(.ant-dropdown-menu-item-disabled):hover {
+    color: #ff4d4f !important;
+    background-color: transparent !important;
+}
+
+/* Fix for browser autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: transparent !important;
+}
+
+/* Firefox autofill fix */
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+    box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: transparent !important;
+}
+
+/* For Ant Design inputs specifically */
+.ant-input:-webkit-autofill,
+.ant-input-affix-wrapper .ant-input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+}
+
+/* Ensure autofill doesn't break input styling */
+.ant-input-affix-wrapper-focused,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper-status-error,
+.ant-input:focus,
+.ant-input-focused,
+.ant-input:hover,
+.ant-input-status-error {
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        background-color: transparent !important;
+    }
+}
+
+/* Additional autofill fixes for specific browsers */
+@-webkit-keyframes autofill {
+    to {
+        color: inherit;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+/* Edge-specific fix */
+input::-ms-reveal {
+    display: none;
+}
+
+/* Safari-specific fix */
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
+/* Fix for password fields */
+input[type="password"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill:hover,
+input[type="password"]:-webkit-autofill:focus,
+input[type="password"]:-webkit-autofill:active {
+    -webkit-text-security: disc !important;
+}
+
+.ant-select-multiple .ant-select-selection-wrap {
+    align-self: center;
+}
+
+.ant-select-multiple .ant-select-selection-item {
+    align-self: center;
+}

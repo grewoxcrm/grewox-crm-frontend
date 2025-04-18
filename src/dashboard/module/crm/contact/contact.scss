@@ -1,0 +1,491 @@
+@import '../../../../styles/theme/theme.scss';
+
+// Common hover effect mixin
+@mixin hover-shadow {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.contact-page {
+    padding: 24px;
+    background-color: #f9fafb; // Light grey background like the image
+    min-height: 100vh;
+
+    // Styles for the breadcrumb container
+    .page-breadcrumb {
+        margin-bottom: 24px;
+        padding: 16px 24px;
+        background: white; // White background
+        border-radius: 12px; // Rounded corners
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); // Subtle shadow
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            a {
+                color: #6b7280; // Grey color for links
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: #2563eb; // Link hover color
+                }
+
+                .anticon { // Icon styling
+                    font-size: 16px;
+                }
+            }
+             // Style for the current page text in breadcrumb
+            .ant-breadcrumb-link,
+            .ant-breadcrumb-separator {
+                 color: #6b7280; // Match link color
+            }
+             > span:last-child .ant-breadcrumb-link {
+                 color: #1f2937; // Darker color for the last item
+             }
+        }
+    }
+
+    // Styles for the header container
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        padding: 24px;
+        background: white; // White background
+        border-radius: 12px; // Rounded corners
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); // Subtle shadow
+
+        .page-title {
+            h2 { // Title styling
+                margin: 0;
+                color: #1f2937;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .subtitle { // Subtitle styling
+                margin-top: 8px;
+                color: #6b7280;
+                font-size: 14px;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            .search-filter-group {
+                .search-input {
+                    .ant-input-affix-wrapper {
+                        border-radius: 8px;
+                        height: 40px;
+                        padding: 4px 12px;
+                        transition: all 0.3s ease;
+                        border: 1px solid #d9d9d9;
+                        background: #fff;
+
+                        .anticon {
+                            color: #8c8c8c;
+                            margin-right: 8px;
+                        }
+                        .ant-input {
+                             font-size: 14px;
+                             background: transparent;
+                             border: none;
+                             padding: 0;
+                             height: auto;
+                            &::placeholder { color: rgba(0, 0, 0, 0.45); }
+                        }
+                        &:hover, &:focus, &-focused {
+                            border-color: #40a9ff;
+                            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+                        }
+                    }
+                }
+            }
+
+            .action-buttons {
+                display: flex;
+                gap: 12px;
+
+                .export-button,
+                .add-button {
+                    height: 40px;
+                    padding: 0 20px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    @include hover-shadow;
+
+                    svg { font-size: 16px; }
+                }
+
+                .export-button {
+                    border: 1px solid #d9d9d9;
+                    background: white;
+                    color: #595959;
+                    &:hover {
+                        color: #40a9ff;
+                        border-color: #40a9ff;
+                    }
+                }
+
+                .add-button {
+                    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                    border: none;
+                    color: white;
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                     .anticon { color: white; }
+                }
+            }
+        }
+    }
+    
+    // Styles for the card containing tabs
+     .ant-card {
+         border-radius: 12px;
+         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+         overflow: hidden; // Important for border-radius on tabs
+
+         .ant-card-body {
+             padding: 0; // Remove default padding
+         }
+     }
+
+    // Styles specifically for the contact tabs section
+    .contact-tabs {
+        .ant-tabs-nav {
+            margin-bottom: 0 !important; // Remove default bottom margin
+            border-bottom: 1px solid #f0f0f0 !important; // Lighter border
+            background: white; // Ensure white background for the tab bar
+            padding: 0 24px; // Add horizontal padding
+
+            .ant-tabs-nav-wrap {
+                .ant-tabs-nav-list {
+                    border: none;
+                    gap: 32px; // Spacing between tabs
+
+                    .ant-tabs-tab {
+                        padding: 16px 0; // Adjust vertical padding for tabs
+                        margin: 0;
+                        border: none !important;
+                        background: transparent !important;
+                        position: relative;
+
+                        // Style for the active tab underline
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -1px; // Position just above the border-bottom
+                            left: 0;
+                            width: 100%;
+                            height: 3px; // Underline thickness
+                            background: #1890ff; // Blue underline color
+                            transform: scaleX(0); // Hidden by default
+                            transition: transform 0.3s ease;
+                            border-radius: 3px 3px 0 0;
+                        }
+
+                        // Styling for the content (icon + text) within a tab label
+                        .nav-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px; // Space between icon and text
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: #64748b; // Default tab text color (greyish)
+                            transition: all 0.3s ease;
+                            padding: 4px 8px; // Padding inside the nav-item span
+                            border-radius: 6px; // Slight rounding if needed
+
+                            .nav-icon {
+                                font-size: 18px; // Icon size
+                                transition: all 0.3s ease;
+                            }
+                        }
+
+                        // Hover styles for an inactive tab
+                        &:hover {
+                            .nav-item {
+                                color: #1890ff; // Change text color on hover
+
+                                .nav-icon {
+                                    // Optional: add icon hover effect if desired
+                                    // transform: translateY(-1px);
+                                }
+                            }
+                        }
+
+                        // Styles for the currently active tab
+                        &.ant-tabs-tab-active {
+                            &::after {
+                                transform: scaleX(1); // Show the underline
+                            }
+
+                            .nav-item {
+                                color: #1890ff; // Active tab text color (blue)
+                                font-weight: 600; // Make active tab bold
+
+                                .nav-icon {
+                                     // Optional: add animation for active icon
+                                     // animation: tabIconBounce 0.3s ease;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Hide the default Ant Design ink bar as we use the ::after pseudo-element
+        .ant-tabs-ink-bar {
+            display: none;
+        }
+
+        // Add padding to the content area below the tabs
+        .ant-tabs-content-holder {
+             padding: 24px;
+            .ant-tabs-content {
+                .ant-tabs-tabpane {
+                    // Optional: animation for tab content appearance
+                    // animation: fadeInTab 0.3s ease;
+                }
+            }
+        }
+    }
+}
+
+// Keyframe animations (optional)
+@keyframes tabIconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-actions-dropdown {
+    .ant-dropdown-menu {
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        padding: 4px 0;
+
+        .ant-dropdown-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            color: #595959;
+            transition: all 0.3s;
+
+            &:hover {
+                background: #f5f5f5;
+                color: #1890ff;
+            }
+
+            &.ant-dropdown-menu-item-danger {
+                color: #ff4d4f;
+
+                &:hover {
+                    background: #fff1f0;
+                    color: #ff7875;
+                }
+            }
+        }
+    }
+}
+
+.action-dropdown-button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #f5f5f5;
+        color: #1890ff;
+    }
+}
+
+// Responsive adjustments if needed
+@media screen and (max-width: 768px) {
+    .contact-page {
+        .page-header {
+            flex-direction: column;
+            gap: 16px;
+
+            .header-actions {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+
+                .search-filter-group {
+                    .search-input { width: 100%; }
+                }
+                .action-buttons {
+                     width: 100%;
+                    flex-direction: column;
+                    .ant-btn { width: 100%; }
+                }
+            }
+        }
+        .page-breadcrumb, .page-header {
+            padding: 16px; // Reduce padding on smaller screens
+        }
+         .contact-tabs {
+             .ant-tabs-nav {
+                 padding: 0 16px;
+             }
+             .ant-tabs-content-holder {
+                 padding: 16px;
+             }
+         }
+    }
+}
+
+// Create Contact Modal Styles
+.pro-modal {
+  .modal-header {
+    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+    padding: 24px;
+    color: #ffffff;
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      svg {
+        font-size: 20px;
+      }
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .header-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          font-size: 24px;
+          color: #ffffff;
+        }
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      .ant-typography {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+    }
+  }
+
+  .contact-form {
+    padding: 24px;
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #262626;
+
+      svg {
+        color: #1890ff;
+      }
+
+      .required {
+        color: #ff4d4f;
+      }
+    }
+
+    .form-input {
+      border-radius: 10px;
+      height: 48px;
+
+      &.ant-select {
+        height: 48px;
+      }
+    }
+
+    .form-textarea {
+      border-radius: 10px;
+    }
+
+    .form-divider {
+      margin: 24px 0;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+
+      .cancel-button {
+        padding: 8px 24px;
+        height: 44px;
+        border-radius: 10px;
+        border: 1px solid #e6e8eb;
+        font-weight: 500;
+      }
+
+      .submit-button {
+        padding: 8px 32px;
+        height: 44px;
+        border-radius: 10px;
+        font-weight: 500;
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        border: none;
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+      }
+    }
+  }
+}

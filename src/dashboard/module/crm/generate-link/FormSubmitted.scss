@@ -1,0 +1,55 @@
+.form-submitted-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 20px;
+
+    .form-submitted-container {
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        padding: 40px 20px;
+
+        .ant-result {
+            padding: 0;
+
+            .ant-result-icon {
+                margin-bottom: 24px;
+
+                .success-icon {
+                    font-size: 48px;
+                    color: #52c41a;
+                }
+            }
+
+            .ant-result-title {
+                color: #1f2937;
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+
+            .ant-result-subtitle {
+                color: #6b7280;
+                font-size: 15px;
+                line-height: 1.6;
+                margin-bottom: 24px;
+            }
+        }
+
+        .success-message {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #f3f4f6;
+
+            p {
+                color: #6b7280;
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 0;
+            }
+        }
+    }
+}

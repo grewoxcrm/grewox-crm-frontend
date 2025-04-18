@@ -1,0 +1,952 @@
+@import '../../../../styles/theme/theme.scss';
+
+// Common hover effect mixin
+@mixin hover-shadow {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.project-page {
+    padding: 24px;
+    background-color: #f9fafb;
+    min-height: 100vh;
+
+    .page-breadcrumb {
+        margin-bottom: 24px;
+        padding: 16px 24px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            a {
+                color: #6b7280;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: #2563eb;
+                }
+
+                .anticon {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+        padding: 24px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+        .header-left {
+            h2 {
+                margin: 0;
+                color: #1f2937;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .subtitle {
+                margin-top: 8px;
+                color: #6b7280;
+                font-size: 14px;
+            }
+        }
+
+        .header-right {
+            .ant-space {
+                .ant-btn {
+                    height: 44px;
+                    padding: 0 24px;
+                    border-radius: 10px;
+                    font-weight: 500;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    transition: all 0.2s;
+
+                    &.ant-btn-primary {
+                        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                        border: none;
+
+                        &:hover {
+                            transform: translateY(-1px);
+                            box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .project-tabs {
+        .ant-tabs-nav {
+            margin-bottom: 24px !important;
+            border-bottom: 1px solid #e5e7eb !important;
+
+            .ant-tabs-nav-wrap {
+                .ant-tabs-nav-list {
+                    border: none;
+                    gap: 32px;
+                    padding: 0 16px;
+
+                    .ant-tabs-tab {
+                        padding: 12px 0;
+                        margin: 0;
+                        border: none !important;
+                        background: transparent !important;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -1px;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: #1890ff;
+                            transform: scaleX(0);
+                            transition: transform 0.3s ease;
+                            border-radius: 3px 3px 0 0;
+                        }
+
+                        .nav-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: #64748b;
+                            transition: all 0.3s ease;
+                            padding: 4px 8px;
+                            border-radius: 6px;
+
+                            .nav-icon {
+                                font-size: 18px;
+                                transition: all 0.3s ease;
+                            }
+                        }
+
+                        &:hover {
+                            .nav-item {
+                                color: #1890ff;
+                                // background: rgba(24, 144, 255, 0.04);
+
+                                .nav-icon {
+                                    transform: translateY(-1px);
+                                }
+                            }
+                        }
+
+                        &.ant-tabs-tab-active {
+                            &::after {
+                                transform: scaleX(1);
+                            }
+
+                            .nav-item {
+                                color: #1890ff;
+                                font-weight: 600;
+                                // background: rgba(24, 144, 255, 0.08);
+
+                                .nav-icon {
+                                    animation: tabIconBounce 0.3s ease;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .ant-tabs-ink-bar {
+            display: none;
+        }
+
+        .ant-tabs-content-holder {
+            .ant-tabs-content {
+                .ant-tabs-tabpane {
+                    animation: fadeInTab 0.3s ease;
+                }
+            }
+        }
+    }
+}
+
+@keyframes tabIconBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.company-overview {
+    .metrics-row {
+        margin-bottom: 24px;
+    }
+
+    .metric-card {
+        height: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        &.status-card {
+            .metric-icon {
+                width: 56px;
+                height: 56px;
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+                transition: all 0.4s ease;
+
+                &.active {
+                    background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+                    box-shadow: 0 8px 16px -4px rgba(82, 196, 26, 0.3);
+                }
+
+                &.inactive {
+                    background: linear-gradient(135deg, #ff4d4f 0%, #cf1322 100%);
+                    box-shadow: 0 8px 16px -4px rgba(255, 77, 79, 0.3);
+                }
+
+                .status-icon {
+                    font-size: 28px;
+                    color: white;
+                    transition: all 0.3s ease;
+                }
+            }
+
+            .metric-content {
+                .metric-label {
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                    color: #6b7280;
+                }
+
+                .metric-value {
+                    font-size: 18px;
+                    font-weight: 600;
+
+                    .status-text {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        .status-indicator {
+                            font-size: 16px;
+                        }
+                    }
+
+                    &.active {
+                        color: #52c41a;
+                    }
+
+                    &.inactive {
+                        color: #ff4d4f;
+                    }
+                }
+            }
+
+            &:hover {
+                .metric-icon {
+                    transform: scale(1.1) rotate(10deg);
+                }
+            }
+        }
+
+        .metric-icon {
+            font-size: 24px;
+            color: #1890ff;
+            margin-bottom: 12px;
+        }
+
+        .metric-content {
+            .metric-label {
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.45);
+                margin-bottom: 4px;
+            }
+
+            .metric-value {
+                font-size: 16px;
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.85);
+            }
+        }
+    }
+
+    .company-details-section {
+        margin-bottom: 24px;
+
+        .detail-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            height: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            }
+
+            .detail-content {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                .detail-icon {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 8px;
+                    background: #f0f5ff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #1890ff;
+                    font-size: 20px;
+                }
+
+                .detail-info {
+                    flex: 1;
+
+                    .detail-label {
+                        font-size: 14px;
+                        color: rgba(0, 0, 0, 0.45);
+                        margin-bottom: 4px;
+                    }
+
+                    .detail-value {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: rgba(0, 0, 0, 0.85);
+                    }
+                }
+            }
+        }
+    }
+
+    .info-card {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-card-head-title {
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        .info-section {
+            h3 {
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 12px;
+                color: rgba(0, 0, 0, 0.85);
+            }
+
+            p {
+                margin-bottom: 8px;
+                color: rgba(0, 0, 0, 0.65);
+                font-size: 14px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.company-account-page {
+    padding: 24px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+
+    .page-breadcrumb {
+        margin-bottom: 16px;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+
+        .page-title {
+            h2 {
+                margin: 0;
+                color: #1f1f1f;
+                font-weight: 600;
+            }
+
+            .ant-typography-secondary {
+                font-size: 14px;
+                margin-top: 4px;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+            .search-filter-group {
+                .search-input {
+                    .ant-input-affix-wrapper {
+                        border-radius: 40px;
+                        height: 40px;
+                        padding: 4px 16px;
+                        transition: all 0.3s ease;
+                        border: 1px solid #d9d9d9;
+                        width: 100%;
+
+                        .anticon {
+                            color: #8c8c8c;
+                            margin-right: 8px;
+                            font-size: 16px;
+                        }
+
+                        .ant-input {
+                            font-size: 14px;
+                            background: transparent;
+                            border: none;
+                            padding: 0;
+                            margin: 0 4px;
+
+                            &::placeholder {
+                                color: rgba(0, 0, 0, 0.45);
+                            }
+                        }
+
+                        &:hover,
+                        &:focus,
+                        &-focused {
+                            border-color: #40a9ff;
+                            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+                        }
+                    }
+                }
+            }
+
+            .action-buttons {
+                display: flex;
+                gap: 12px;
+
+                .export-button,
+                .add-button {
+                    height: 40px;
+                    padding: 0 20px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    svg {
+                        font-size: 16px;
+                    }
+                }
+
+                .export-button {
+                    border: 1px solid #d9d9d9;
+                    background: white;
+                    color: #595959;
+
+                    &:hover {
+                        color: #40a9ff;
+                        border-color: #40a9ff;
+                        transform: translateY(-2px);
+                    }
+                }
+
+                .add-button {
+                    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                    border: none;
+                    color: white;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+
+    .content-card {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        background: #ffffff;
+
+        .ant-table-wrapper {
+            .ant-table {
+                .ant-table-thead > tr > th {
+                    background: #fafafa;
+                    font-weight: 600;
+                    color: #262626;
+                }
+
+                .ant-table-tbody > tr > td {
+                    padding: 12px 16px;
+                }
+
+                .ant-table-tbody > tr:hover > td {
+                    background: #f5f5f5;
+                }
+            }
+        }
+    }
+}
+
+.company-account-actions-dropdown {
+    .ant-dropdown-menu {
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        padding: 4px 0;
+
+        .ant-dropdown-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            color: #595959;
+            transition: all 0.3s;
+
+            &:hover {
+                background: #f5f5f5;
+                color: #1890ff;
+            }
+
+            &.ant-dropdown-menu-item-danger {
+                color: #ff4d4f;
+
+                &:hover {
+                    background: #fff1f0;
+                    color: #ff7875;
+                }
+            }
+        }
+    }
+}
+
+.action-dropdown-button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #f5f5f5;
+        color: #1890ff;
+    }
+}
+
+// Create Company Account Modal Styles
+.pro-modal {
+    .modal-header {
+        background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+        padding: 24px;
+        color: #ffffff;
+        position: relative;
+
+        .close-button {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+
+            svg {
+                font-size: 20px;
+            }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            .header-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(8px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font-size: 24px;
+                    color: #ffffff;
+                }
+            }
+
+            h2 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .ant-typography {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.85);
+            }
+        }
+    }
+
+    .company-account-form {
+        padding: 24px;
+
+        .form-section {
+            margin-bottom: 24px;
+
+            .section-title {
+                display: block;
+                font-size: 16px;
+                margin-bottom: 16px;
+                color: #1f1f1f;
+            }
+
+            .section-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 16px;
+
+                .copy-address-switch {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    .ant-typography {
+                        color: #595959;
+                    }
+                }
+            }
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #262626;
+
+            svg {
+                color: #1890ff;
+            }
+
+            .required {
+                color: #ff4d4f;
+            }
+        }
+
+        .form-input {
+            border-radius: 10px;
+            height: 48px;
+
+            &.ant-select {
+                height: 48px;
+            }
+        }
+
+        .form-textarea {
+            border-radius: 10px;
+        }
+
+        .form-divider {
+            margin: 24px 0;
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+
+            .cancel-button {
+                padding: 8px 24px;
+                height: 44px;
+                border-radius: 10px;
+                border: 1px solid #e6e8eb;
+                font-weight: 500;
+            }
+
+            .submit-button {
+                padding: 8px 32px;
+                height: 44px;
+                border-radius: 10px;
+                font-weight: 500;
+                background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                border: none;
+                box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+            }
+        }
+    }
+}
+
+// Company Details Page Styles
+.company-page {
+    padding: 24px;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+
+    .page-breadcrumb {
+        margin-bottom: 16px;
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            .anticon {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 24px;
+
+        .header-left {
+            h2 {
+                margin: 0;
+                color: #1f1f1f;
+                font-weight: 600;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                margin-top: 4px;
+            }
+        }
+
+        .header-right {
+            .ant-space {
+                gap: 12px !important;
+            }
+
+            .ant-btn {
+                height: 44px;
+                padding: 0 24px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border-radius: 10px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-2px);
+                }
+
+                .anticon {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .ant-card {
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+        .ant-card-body {
+            padding: 0;
+        }
+    }
+
+    .project-tabs {
+        .ant-tabs-nav {
+            margin: 0;
+            padding: 0 24px;
+            background: #fff;
+            border-bottom: 1px solid #f0f0f0;
+
+            .ant-tabs-tab {
+                padding: 16px 20px;
+                margin: 0;
+                font-size: 14px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: #1890ff;
+                }
+
+                &.ant-tabs-tab-active {
+                    background: #e6f7ff;
+                    border-color: transparent;
+
+                    .ant-tabs-tab-btn {
+                        color: #1890ff;
+                    }
+                }
+
+                .nav-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    .nav-icon {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .ant-tabs-ink-bar {
+                background: #1890ff;
+            }
+        }
+
+        .ant-tabs-content {
+            padding: 24px;
+        }
+    }
+}
+
+// Responsive styles
+@media screen and (max-width: 768px) {
+    .company-account-page {
+        padding: 16px;
+
+        .page-header {
+            flex-direction: column;
+            gap: 16px;
+
+            .header-actions {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+
+                .search-filter-group {
+                    .ant-input-affix-wrapper {
+                        width: 100%;
+                    }
+                }
+
+                .action-buttons {
+                    flex-wrap: wrap;
+                    justify-content: flex-start;
+
+                    .ant-btn {
+                        flex: 1;
+                        min-width: 120px;
+                    }
+                }
+            }
+        }
+    }
+
+    .pro-modal {
+        .company-account-form {
+            padding: 16px;
+
+            .form-section {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    .company-page {
+        padding: 16px;
+
+        .page-header {
+            flex-direction: column;
+            gap: 16px;
+
+            .header-right {
+                width: 100%;
+
+                .ant-space {
+                    width: 100%;
+                    flex-wrap: wrap;
+
+                    .ant-btn {
+                        flex: 1;
+                        min-width: 120px;
+                        padding: 0 12px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+
+        .project-tabs {
+            .ant-tabs-nav {
+                padding: 0 16px;
+
+                .ant-tabs-tab {
+                    padding: 12px 16px;
+                }
+            }
+
+            .ant-tabs-content {
+                padding: 16px;
+            }
+        }
+    }
+}

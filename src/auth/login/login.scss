@@ -1,0 +1,286 @@
+@use 'sass:color';
+@use '../../styles/theme/theme' as *;
+
+.login-container {
+    min-height: 100vh;
+    @include flex-center;
+    background: $background-color;
+    @include gradient-background;
+    padding: 20px;
+
+    .login-split {
+        display: flex;
+        width: 100%;
+        max-width: 1200px;
+        min-height: 600px;
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+
+        .illustration-side {
+            flex: 1;
+            @include primary-gradient;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+                z-index: 1;
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 48px;
+                position: relative;
+                z-index: 2;
+
+                .logo {
+                    font-size: 28px;
+                    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+                }
+
+                .brand-name {
+                    font-size: 26px;
+                    font-weight: 700;
+                    letter-spacing: -0.5px;
+                }
+            }
+
+            .illustration {
+                width: 100%;
+                max-width: 440px;
+                margin: 20px 0;
+                position: relative;
+                z-index: 2;
+                filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+                @include hover-transform;
+            }
+
+            .illustration-text {
+                text-align: center;
+                margin-top: 32px;
+                z-index: 2;
+
+                h2 {
+                    color: white;
+                    font-size: 28px;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                }
+
+                p {
+                    color: rgba(255, 255, 255, 0.9);
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+        }
+
+        .form-side {
+            flex: 1;
+            padding: 48px 64px;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            position: relative;
+
+            .login-header {
+                margin-bottom: 40px;
+
+                h1 {
+                    font-size: 32px;
+                    color: $text-color;
+                    margin-bottom: 12px;
+                    font-weight: 700;
+                    letter-spacing: -0.5px;
+                    line-height: 1.2;
+                }
+
+                p {
+                    color: #64748b;
+                    font-size: 16px;
+                    margin: 0;
+                    line-height: 1.6;
+                }
+            }
+
+            .login-form {
+                .ant-form-item {
+                    margin-bottom: 24px;
+
+                    .ant-input-affix-wrapper {
+                        padding: 12px 16px;
+                        border-radius: 12px;
+                        border: 2px solid $border-color;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            border-color: $secondary-color;
+                        }
+
+                        &-focused {
+                            border-color: $primary-color;
+                            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+                        }
+
+                        .ant-input {
+                            font-size: 15px;
+
+                            &::placeholder {
+                                color: #94a3b8;
+                            }
+                        }
+
+                        .anticon {
+                            color: #64748b;
+                        }
+                    }
+
+                    &.remember-me {
+                        margin-bottom: 0;
+
+                        .ant-checkbox-wrapper {
+                            color: #64748b;
+                            font-weight: 500;
+
+                            &:hover {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                }
+
+                .form-footer {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 24px;
+
+                    .remember-me {
+                        .ant-checkbox-wrapper {
+                            color: #64748b;
+                            font-weight: 500;
+
+                            &:hover {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+
+                    .forgot-link {
+                        @include text-button;
+                        color: $primary-color;
+                        font-weight: 500;
+
+                        &:hover {
+                            color: darken-color($primary-color);
+                        }
+                    }
+                }
+
+                .forgot-password {
+                    text-align: right;
+                    margin: 0px 0 24px;
+
+                    a {
+                        @include text-button;
+                        color: $primary-color;
+
+                        &:hover {
+                            color: darken-color($primary-color);
+                        }
+                    }
+                }
+
+                .login-button {
+                    @include primary-button;
+                    width: 100%;
+                    margin-bottom: 32px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .login-container {
+        .login-split {
+            flex-direction: column;
+            max-width: 500px;
+            margin: 20px;
+
+            .illustration-side {
+                padding: 40px;
+                min-height: 300px;
+
+                .illustration {
+                    max-width: 280px;
+                }
+            }
+
+            .form-side {
+                padding: 40px 32px;
+            }
+        }
+    }
+}
+
+// Enhanced animations
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}
+
+// Add loading state animation
+.ant-btn-loading {
+    position: relative;
+    cursor: default;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        z-index: 1;
+        background: inherit;
+        border-radius: inherit;
+        opacity: 0.35;
+    }
+}
+
+// Message styles
+.success-icon {
+    color: $success-color;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.error-icon {
+    color: $error-color;
+    font-weight: bold;
+    margin-right: 8px;
+}

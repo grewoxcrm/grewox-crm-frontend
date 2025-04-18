@@ -1,0 +1,192 @@
+.project-milestones {
+    .ant-card {
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-card-head-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .ant-card-extra {
+                .ant-btn {
+                    border-radius: 8px;
+                    height: 40px;
+                    padding: 0 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                    border: none;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+            }
+        }
+
+        .ant-card-body {
+            padding: 24px;
+        }
+    }
+
+    .ant-timeline {
+        .timeline-dot {
+            font-size: 16px;
+
+            &.completed {
+                color: #52c41a;
+            }
+
+            &.in-progress {
+                color: #1890ff;
+            }
+
+            &.pending {
+                color: #faad14;
+            }
+        }
+    }
+
+    .milestone-item {
+        padding: 16px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #f0f0f0;
+        margin-bottom: 8px;
+
+        .milestone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+
+            h4 {
+                margin: 0;
+                font-size: 16px;
+                font-weight: 500;
+                color: #1f2937;
+            }
+
+            .ant-tag {
+                border-radius: 4px;
+                padding: 2px 8px;
+                font-size: 12px;
+            }
+        }
+
+        .description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .milestone-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .date {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #6b7280;
+                font-size: 13px;
+
+                svg {
+                    font-size: 16px;
+                }
+            }
+
+            .progress-wrapper {
+                width: 120px;
+
+                .ant-progress {
+                    margin: 0;
+
+                    .ant-progress-bg {
+                        height: 6px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Modal styles
+.ant-modal {
+    .ant-modal-content {
+        border-radius: 12px;
+
+        .ant-modal-header {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-modal-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 24px;
+
+            .ant-form-item {
+                margin-bottom: 16px;
+
+                .ant-input-prefix {
+                    color: #1890ff;
+                    margin-right: 8px;
+                }
+
+                .ant-input,
+                .ant-select-selector,
+                .ant-picker {
+                    border-radius: 8px;
+                    border-color: #e5e7eb;
+
+
+                }
+            }
+        }
+
+        .ant-modal-footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-btn {
+                border-radius: 8px;
+                height: 40px;
+                padding: 0 16px;
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .project-milestones {
+        .milestone-item {
+            .milestone-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .milestone-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+
+                .progress-wrapper {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

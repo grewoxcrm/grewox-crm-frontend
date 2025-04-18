@@ -1,0 +1,357 @@
+   @mixin hover-effect {
+  transition: all 0.3s ease;
+  &:hover {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+}
+
+.custom-modal {
+  .modal-header {
+    margin: -24px -24px 24px;
+    padding: 16px 24px;
+    background: linear-gradient(90deg, #1890ff 0%, #1677ff 100%);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      color: white;
+      border: none;
+      background: none;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .header-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h2 {
+        color: white;
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .category-form {
+    padding: 0 8px;
+
+    .ant-form-item {
+      margin-bottom: 24px;
+
+      .ant-form-item-label > label {
+        display: flex;
+        align-items: center;
+        color: #1f1f1f;
+        font-weight: 500;
+      }
+
+      .ant-input,
+      .ant-select-selector,
+      .ant-input-number,
+      .ant-picker {
+        @include hover-effect;
+        border-radius: 6px;
+      }
+
+      .ant-input-textarea textarea {
+        min-height: 100px;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 32px;
+
+      .cancel-button {
+        border-radius: 6px;
+        
+        &:hover {
+          color: #ff4d4f;
+          border-color: #ff4d4f;
+        }
+      }
+
+      .submit-button {
+        border-radius: 6px;
+        background: linear-gradient(90deg, #1890ff 0%, #1677ff 100%);
+        border: none;
+        
+        &:hover {
+          background: linear-gradient(90deg, #40a9ff 0%, #4096ff 100%);
+        }
+      }
+    }
+  }
+}
+
+.category-table {
+  .ant-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+    .ant-table-thead > tr > th {
+      background: #fafafa;
+      font-weight: 600;
+    }
+  }
+
+  .status-tag {
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    
+    &.active {
+      color: #52c41a;
+      background: #f6ffed;
+      border: 1px solid #b7eb8f;
+    }
+    
+    &.inactive {
+      color: #ff4d4f;
+      background: #fff1f0;
+      border: 1px solid #ffa39e;
+    }
+  }
+
+  .action-button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  .ant-input-search {
+    max-width: 300px;
+
+    .ant-input {
+      border-radius: 6px 0 0 6px;
+      @include hover-effect;
+    }
+
+    .ant-input-group-addon {
+      .ant-btn {
+        border-radius: 0 6px 6px 0;
+        background: linear-gradient(90deg, #1890ff 0%, #1677ff 100%);
+        border: none;
+        
+        &:hover {
+          background: linear-gradient(90deg, #40a9ff 0%, #4096ff 100%);
+        }
+      }
+    }
+  }
+
+  .add-button {
+    border-radius: 6px;
+    background: linear-gradient(90deg, #1890ff 0%, #1677ff 100%);
+    border: none;
+    
+    &:hover {
+      background: linear-gradient(90deg, #40a9ff 0%, #4096ff 100%);
+    }
+  }
+}
+
+.pro-modal.custom-modal {
+  .ant-modal-content {
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .modal-header {
+    margin: 0;
+    position: relative;
+
+    .close-button {
+      &:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .ant-form {
+    .ant-form-item {
+      margin-bottom: 24px;
+
+      &-label {
+        padding-bottom: 8px;
+
+        label {
+          color: #1f2937;
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+
+      .ant-input {
+        &:hover {
+          border-color: #1890ff;
+        }
+
+        &:focus {
+          border-color: #1890ff;
+          box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+        }
+      }
+
+      .ant-input-prefix {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+
+  .category-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(24, 144, 255, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+      0 4px 6px rgba(24, 144, 255, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(24, 144, 255, 0.08),
+        0 4px 8px rgba(24, 144, 255, 0.04);
+      border-color: rgba(24, 144, 255, 0.2);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .category-icon {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(24, 144, 255, 0.2);
+      }
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .category-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+
+        svg {
+          color: white;
+          font-size: 20px;
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+      }
+
+      .category-info {
+        flex: 1;
+
+        h3 {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 600;
+          color: #1f2937;
+        }
+
+        .category-type {
+          font-size: 14px;
+          color: #6b7280;
+          margin-top: 4px;
+        }
+      }
+
+      .category-actions {
+        display: flex;
+        gap: 8px;
+
+        button {
+          width: 32px;
+          height: 32px;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          border: none;
+          background: transparent;
+          color: #6b7280;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background-color: rgba(24, 144, 255, 0.08);
+            color: #1890ff;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+} 

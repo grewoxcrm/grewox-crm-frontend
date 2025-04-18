@@ -1,0 +1,370 @@
+.followup-table {
+    .ant-table {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+
+        .ant-table-thead > tr > th {
+            background: #f8fafc;
+            font-weight: 600;
+            padding: 16px;
+            color: #1f2937;
+            border-bottom: 1px solid #e6e8eb;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: #f3f4f6 !important;
+            }
+        }
+
+        .ant-table-tbody > tr {
+            > td {
+                padding: 16px;
+                border-bottom: 1px solid #f0f0f0;
+                transition: all 0.3s ease;
+
+                &:first-child {
+                    .ant-table-cell-content {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        svg {
+                            color: #1890ff;
+                        }
+                    }
+                }
+
+                .ant-avatar-group {
+                    .ant-avatar {
+                        border: 2px solid #fff;
+                        
+                        &:not(:first-child) {
+                            margin-left: -8px;
+                        }
+                    }
+                }
+
+                .ant-tag {
+                    border-radius: 12px;
+                    padding: 2px 12px;
+                    font-weight: 500;
+                    border: none;
+
+                    &[color="#ff4d4f"] {
+                        color: #dc2626;
+                        background: #fee2e2;
+                    }
+
+                    &[color="#faad14"] {
+                        color: #d97706;
+                        background: #fff7e6;
+                    }
+
+                    &[color="#1890ff"] {
+                        color: #2563eb;
+                        background: #e6f7ff;
+                    }
+
+                    &[color="#52c41a"] {
+                        color: #16a34a;
+                        background: #f6ffed;
+                    }
+                }
+
+                .status-tag {
+                    border-radius: 12px;
+                    padding: 2px 12px;
+                    font-weight: 500;
+                    border: none;
+
+                    &[color="#52c41a"] {
+                        background: #f6ffed;
+                        color: #389e0d;
+                    }
+
+                    &[color="#1890ff"] {
+                        background: #e6f7ff;
+                        color: #096dd9;
+                    }
+
+                    &[color="#ff4d4f"] {
+                        background: #fff1f0;
+                        color: #cf1322;
+                    }
+                }
+            }
+
+            &:hover {
+                > td {
+                    background: #f8fafc !important;
+                }
+            }
+
+            &:last-child > td {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .action-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        color: #6b7280;
+
+        &:hover {
+            background: #f3f4f6;
+            color: #1f2937;
+
+            &.delete {
+                background: #fff1f0;
+                color: #ff4d4f;
+            }
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+// Custom scrollbar styling
+.ant-table-body {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #d1d5db;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: #9ca3af;
+        }
+    }
+}
+
+// Empty state styling
+.ant-table-empty {
+    .ant-table-tbody > tr.ant-table-placeholder {
+        .ant-empty {
+            margin: 32px 0;
+
+            .ant-empty-image {
+                height: 160px;
+                opacity: 0.5;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+
+            .ant-empty-description {
+                color: #6b7280;
+                font-size: 14px;
+                margin-top: 16px;
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .followup-table {
+        .ant-table {
+            .ant-table-thead > tr > th,
+            .ant-table-tbody > tr > td {
+                padding: 12px;
+            }
+        }
+    }
+}
+
+// Add these styles for the delete modal
+.custom-delete-modal {
+    .ant-modal-content {
+        padding: 0;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .ant-modal-body {
+        padding: 0;
+    }
+
+    .ant-modal-confirm-btns {
+        margin: 0;
+        padding: 16px 24px;
+        border-top: 1px solid #E5E7EB;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+
+        .ant-btn {
+            margin: 0;
+            
+            &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        .ant-btn-primary {
+            &:hover {
+                background-color: #B91C1C;
+                border-color: #B91C1C;
+            }
+        }
+
+        .ant-btn-default {
+            border-color: #E5E7EB;
+            color: #374151;
+
+            &:hover {
+                border-color: #D1D5DB;
+                color: #1F2937;
+                background-color: #F9FAFB;
+            }
+        }
+    }
+
+    .ant-modal-confirm-content {
+        margin: 0 !important;
+        padding: 0;
+    }
+
+    // Animation for the delete icon
+    .delete-icon-container {
+        animation: scaleIn 0.3s ease-out;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+// Hover effects for action buttons
+.action-btn {
+    &:hover {
+        background-color: #F3F4F6;
+        border-radius: 6px;
+    }
+}
+
+// Style for the dropdown menu
+.ant-dropdown-menu {
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    .ant-dropdown-menu-item {
+        padding: 8px 12px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &:hover {
+            background-color: #F3F4F6;
+        }
+
+        &-danger {
+            color: #DC2626;
+
+            &:hover {
+                background-color: #FEF2F2;
+                color: #B91C1C;
+            }
+        }
+    }
+}
+
+// Delete confirmation modal styles
+.delete-confirmation-modal {
+    .ant-modal-content {
+        border-radius: 8px;
+        padding: 16px;
+    }
+
+    .ant-modal-confirm-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #000000;
+        margin-bottom: 8px;
+
+        .anticon {
+            font-size: 20px;
+            color: #faad14;
+        }
+    }
+
+    .ant-modal-confirm-content {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.65);
+        margin-left: 28px;
+        margin-bottom: 16px;
+    }
+
+    .ant-modal-confirm-btns {
+        margin-top: 24px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+
+        .ant-btn {
+            border-radius: 4px;
+            height: 32px;
+            padding: 4px 16px;
+            font-size: 14px;
+
+            &-primary {
+                background-color: #ff4d4f;
+                border-color: #ff4d4f;
+
+                &:hover {
+                    background-color: #ff7875;
+                    border-color: #ff7875;
+                }
+            }
+
+            &-default {
+                border-color: #d9d9d9;
+                
+                &:hover {
+                    border-color: #40a9ff;
+                    color: #40a9ff;
+                }
+            }
+        }
+    }
+}

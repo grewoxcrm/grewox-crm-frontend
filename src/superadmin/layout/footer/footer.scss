@@ -1,0 +1,70 @@
+@import '../../../styles/theme/theme.scss';
+
+.superadmin-footer {
+    background-color: white;
+    border-top: 1px solid rgba($border-color, 0.8);
+    padding: 1rem 2rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 260px); // Match main content width
+    z-index: 10;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); // Match sidebar transition
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+
+        .copyright {
+            color: rgba($text-color, 0.6);
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+
+            a {
+                color: rgba($text-color, 0.6);
+                text-decoration: none;
+                font-size: 0.875rem;
+                font-weight: 400;
+                line-height: 1.5;
+                transition: all 0.2s ease-in-out;
+                padding: 0.25rem 0;
+                position: relative;
+
+                &:hover {
+                    color: $primary-color;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 1px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $primary-color;
+                    transition: width 0.2s ease-in-out;
+                }
+
+                &:hover:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// Adjust for collapsed sidebar
+.superadmin-sidebar.collapsed~.main-content .superadmin-footer {
+    width: calc(100% - 70px); // Match collapsed main content width
+}

@@ -1,0 +1,43 @@
+@import '../../../styles/theme/theme.scss';
+
+.dashboard-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 260px);
+    height: 60px;
+    background: #FFFFFF;
+    padding: 0 24px;
+    box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.03);
+    transition: width 0.3s ease;
+    z-index: 999;
+
+    .footer-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #64748B;
+        font-size: 14px;
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+
+            a {
+                color: #64748B;
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: #3B82F6;
+                }
+            }
+        }
+    }
+}
+
+// Adjust footer width when sidebar is collapsed
+.dashboard-sidebar.collapsed~.main-content .dashboard-footer {
+    width: calc(100% - 70px);
+}

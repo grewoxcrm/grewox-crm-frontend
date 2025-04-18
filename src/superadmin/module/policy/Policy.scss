@@ -1,0 +1,725 @@
+@import '../../../styles/theme/theme.scss';
+
+// Common hover effect mixin
+@mixin hover-shadow {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.policy-page {
+    padding: 24px;
+    background: $background-color;
+
+    .page-breadcrumb {
+        margin-bottom: 16px;
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            .ant-breadcrumb-link {
+                color: $text-color-light;
+                transition: all 0.3s ease;
+
+                a {
+                    color: $text-color-light;
+                    display: inline-flex;
+                    align-items: center;
+
+                    &:hover {
+                        color: #1677ff;
+                    }
+                }
+
+                &:last-child {
+                    color: $text-color-dark;
+                    font-weight: 500;
+                }
+            }
+
+            .ant-breadcrumb-separator {
+                margin: 0 8px;
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .page-header {
+        @include hover-shadow;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        background: white;
+        padding: 24px 32px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .page-title {
+            text-align: left;
+            margin-bottom: 0;
+            flex-shrink: 0;
+
+            h2 {
+                color: $text-color-dark;
+                margin-bottom: 4px;
+                font-size: 28px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .ant-typography-secondary {
+                color: $text-color-light;
+                font-size: 15px;
+                display: block;
+            }
+        }
+
+        .header-actions-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+            margin: 0;
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 16px;
+                width: 100%;
+                max-width: 800px;
+
+                .search-input {
+                    flex: 1;
+                    max-width: 360px;
+                    min-width: 200px;
+
+                    .ant-input-affix-wrapper {
+                        border-radius: 40px;
+                        height: 40px;
+                        padding: 4px 16px;
+                        transition: all 0.3s ease;
+                        border: 1px solid $border-color;
+                        width: 100%;
+
+                        .anticon {
+                            color: $text-color-light;
+                            margin-right: 8px;
+                            font-size: 16px;
+                        }
+
+                        .ant-input {
+                            font-size: 14px;
+                            background: transparent;
+                            border: none;
+                            padding: 0;
+                            margin: 0 4px;
+
+                            &::placeholder {
+                                color: rgba($text-color, 0.45);
+                            }
+                        }
+
+                        &:hover,
+                        &:focus,
+                        &-focused {
+                            border-color: #1677ff;
+                            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+                        }
+                    }
+                }
+
+                .action-buttons {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    flex-shrink: 0;
+
+                    .view-toggle {
+                        display: flex;
+                        align-items: center;
+
+                        .ant-btn {
+                            height: 40px;
+                            width: 40px;
+                            padding: 0;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            transition: all 0.3s ease;
+
+                            &:first-child {
+                                border-top-left-radius: 8px;
+                                border-bottom-left-radius: 8px;
+                            }
+
+                            &:last-child {
+                                border-top-right-radius: 8px;
+                                border-bottom-right-radius: 8px;
+                            }
+
+                            svg {
+                                font-size: 16px;
+                            }
+
+                            &.ant-btn-primary {
+                                background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                                border: none;
+
+                                &:hover {
+                                    background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                                }
+                            }
+
+                            &:hover {
+                                transform: translateY(-2px);
+                            }
+                        }
+                    }
+
+                    .export-button,
+                    .add-button {
+                        height: 40px;
+                        padding: 0 20px;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        border-radius: 8px;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+
+                        svg {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .export-button {
+                        border: 1px solid $border-color;
+                        background: white;
+
+                        &:hover {
+                            color: #1677ff;
+                            border-color: #1677ff;
+                            transform: translateY(-2px);
+                        }
+                    }
+
+                    .add-button {
+                        background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                        border: none;
+                        color: white;
+
+                        &:hover {
+                            background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                            transform: translateY(-2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .policy-table-card {
+        @include hover-shadow;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .table-controls {
+            padding: 16px;
+            border-bottom: 1px solid $border-color;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+
+            .search-section {
+                flex: 1;
+                max-width: 360px;
+
+                .ant-input-search .ant-input {
+                    border-radius: 8px;
+
+                    &:focus {
+                        border-color: $primary-color;
+                        box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+                    }
+                }
+            }
+
+            .filter-buttons {
+                display: flex;
+                gap: 8px;
+            }
+        }
+
+        .active-filters {
+            padding: 12px 16px;
+            background: lighten-color($background-color);
+            border-bottom: 1px solid $border-color;
+
+            .filter-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+
+                .ant-tag {
+                    margin: 0;
+                    border-radius: 4px;
+                    background: white;
+                }
+            }
+        }
+
+        .ant-table-wrapper {
+            padding: 0 1px;
+        }
+
+        .ant-table {
+            .ant-table-thead {
+                position: relative;
+                z-index: 2;
+
+                >tr>th {
+                    background: $background-color;
+                    font-weight: 600;
+                    color: $text-color-dark;
+                    padding: 12px 16px;
+                    border-bottom: 2px solid $border-color;
+                    transition: all 0.3s ease;
+                    position: relative;
+
+                    &:hover {
+                        background: darken($background-color, 5%);
+                    }
+
+                    &.ant-table-column-sort {
+                        background: rgba(24, 144, 255, 0.05);
+
+                        &:hover {
+                            background: rgba(24, 144, 255, 0.1);
+                        }
+                    }
+
+                    .ant-table-column-sorter {
+                        color: rgba(0, 0, 0, 0.45);
+
+                        &-up.active,
+                        &-down.active {
+                            color: #1677ff;
+                        }
+                    }
+                }
+            }
+
+            .ant-table-tbody {
+                position: relative;
+                z-index: 1;
+
+                >tr {
+                    td {
+                        padding: 12px 16px;
+                        transition: all 0.3s ease;
+                        border-bottom: 1px solid $border-color;
+                    }
+
+                    &:hover {
+                        position: relative;
+
+                        td {
+                            background: rgba(24, 144, 255, 0.05);
+                            position: relative;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ant-pagination {
+            margin: 16px;
+
+            .ant-pagination-item {
+                transition: all 0.3s ease;
+
+                &:hover,
+                &-active {
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+
+    .empty-table-content {
+        padding: 40px 0;
+        text-align: center;
+
+        svg {
+            color: $text-color-light;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: $text-color-dark;
+            margin: 0;
+        }
+
+        .empty-subtitle {
+            color: $text-color-light;
+            font-size: 14px;
+            margin: 8px 0 16px;
+        }
+    }
+
+    .policy-cards-grid {
+        padding: 16px;
+
+        .policy-card {
+            @include hover-shadow;
+            height: 100%;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid $border-color;
+
+            &:hover {
+                border-color: #1677ff;
+            }
+
+            .ant-card-body {
+                padding: 20px;
+            }
+
+            .policy-card-content {
+                h3 {
+                    margin: 0 0 12px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: $text-color-dark;
+                }
+
+                p {
+                    margin: 0 0 8px;
+                    color: $text-color;
+                    font-size: 14px;
+
+                    a {
+                        color: $primary-color;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .policy-card-footer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 16px;
+
+                    .ant-tag {
+                        margin: 0;
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        font-weight: 500;
+                    }
+
+                    .created-date {
+                        font-size: 12px;
+                        color: $text-color-light;
+                    }
+                }
+            }
+
+            .ant-card-actions {
+                background: #fafafa;
+                border-top: 1px solid $border-color;
+
+                li {
+                    margin: 12px 0;
+
+                    span {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        svg {
+                            font-size: 16px;
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                            color: $text-color;
+
+                            &:hover {
+                                transform: translateY(-2px) scale(1.1);
+                                color: #1677ff;
+                            }
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        border-right: 1px solid $border-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Drawer and Modal styles
+.ant-drawer,
+.ant-modal {
+    .ant-drawer-content,
+    .ant-modal-content {
+        border-radius: $button-radius;
+        box-shadow: $button-hover-shadow;
+    }
+
+    .ant-drawer-header,
+    .ant-modal-header {
+        background: $background-color;
+        border-bottom: 1px solid $border-color;
+        padding: 20px 24px;
+
+        .ant-drawer-title,
+        .ant-modal-title {
+            color: $text-color-dark;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+
+    .ant-drawer-body,
+    .ant-modal-body {
+        background: white;
+        padding: 24px;
+    }
+}
+
+// Policy form styles
+.policy-form-card {
+    box-shadow: none;
+
+    .ant-card-body {
+        padding: 0;
+    }
+
+    .form-subtitle {
+        margin-top: 4px;
+        display: block;
+        color: $text-color-light;
+    }
+
+    .ant-form {
+        margin-top: 24px;
+
+        .ant-form-item-label>label {
+            font-weight: 500;
+            color: $text-color-dark;
+        }
+
+        .ant-input,
+        .ant-input-number,
+        .ant-select-selector {
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid #d9d9d9;
+
+            &:hover,
+            &:focus {
+                transform: translateY(-2px);
+                border-color: #1677ff;
+            }
+        }
+
+        .ant-input-number {
+            width: 100%;
+        }
+
+        .ant-switch {
+            background-color: rgba(0, 0, 0, 0.25);
+
+            &.ant-switch-checked {
+                background-color: #1677ff;
+            }
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 32px;
+            margin-bottom: 0;
+
+            .ant-btn {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                height: 40px;
+                padding: 0 16px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+
+                &:first-child {
+                    background: white;
+                    color: rgba(0, 0, 0, 0.85);
+                    border: 1px solid #d9d9d9;
+
+                    &:hover {
+                        color: #40a9ff;
+                        border-color: #40a9ff;
+                    }
+                }
+
+                &:last-child {
+                    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                    border: none;
+                    color: white;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+
+                svg {
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}
+
+// Modal styles
+:where(.css-dev-only-do-not-override-240cud).ant-input-affix-wrapper {
+    border-radius: 40px;
+    padding: 8px 20px;
+    transition: all 0.2s;
+}
+
+.ant-modal {
+    .ant-modal-content {
+        @include hover-shadow;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        .ant-modal-header {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-modal-title {
+                color: $text-color-dark;
+                font-weight: 600;
+            }
+        }
+
+        .ant-modal-body {
+            p {
+                margin-bottom: 8px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                    color: $text-color-light;
+                }
+
+                strong {
+                    color: $text-color-dark;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .ant-modal-footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 12px 24px;
+
+            .ant-btn {
+                border-radius: 8px;
+                height: 36px;
+                transition: all 0.3s ease;
+
+                &:first-child {
+                    background: white;
+                    color: rgba(0, 0, 0, 0.85);
+                    border: 1px solid #d9d9d9;
+
+                    &:hover {
+                        color: #40a9ff;
+                        border-color: #40a9ff;
+                    }
+                }
+
+                &.ant-btn-primary {
+                    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                    border: none;
+                    color: white;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+
+                &:hover {
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}
+
+// Add responsive styles
+@media (max-width: 768px) {
+    .policy-page {
+        .page-header {
+            flex-direction: column;
+            padding: 24px;
+            gap: 20px;
+
+            .page-title {
+                text-align: center;
+                width: 100%;
+
+                h2 {
+                    margin-bottom: 4px;
+                }
+            }
+
+            .header-actions-wrapper {
+                width: 100%;
+                margin: 0;
+
+                .header-actions {
+                    flex-direction: column;
+                    gap: 16px;
+
+                    .search-input {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+
+                    .action-buttons {
+                        width: 100%;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Override Form.Item margin
+.pro-modal.custom-modal {
+    .ant-form {
+        .ant-form-item {
+            margin-bottom: 0 !important;
+        }
+    }
+}

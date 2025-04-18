@@ -1,0 +1,660 @@
+.project-invoices {
+    .ant-card {
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-card-head-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .ant-card-extra {
+                .ant-btn {
+                    border-radius: 8px;
+                    height: 40px;
+                    padding: 0 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                    border: none;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+            }
+        }
+
+        .ant-card-body {
+            padding: 0;
+        }
+    }
+
+    .invoice-info {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+
+        .invoice-icon {
+            font-size: 20px;
+            color: #1890ff;
+            margin-top: 2px;
+        }
+
+        .invoice-details {
+            h4 {
+                margin: 0 0 4px;
+                font-size: 14px;
+                font-weight: 500;
+                color: #1f2937;
+            }
+
+            p {
+                margin: 0;
+                font-size: 12px;
+                color: #6b7280;
+            }
+        }
+    }
+
+    .amount-info,
+    .date-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #1f2937;
+        font-size: 14px;
+
+        svg {
+            color: #6b7280;
+            font-size: 16px;
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+
+        .ant-btn {
+            padding: 4px 8px;
+            height: auto;
+
+            &.view-button {
+                color: #1890ff;
+
+                &:hover {
+                    background: rgba(24, 144, 255, 0.1);
+                }
+            }
+
+            &.download-button {
+                color: #52c41a;
+
+                &:hover {
+                    background: rgba(82, 196, 26, 0.1);
+                }
+            }
+
+            &.send-button {
+                color: #722ed1;
+
+                &:hover {
+                    background: rgba(114, 46, 209, 0.1);
+                }
+            }
+        }
+    }
+
+    .ant-table {
+        .ant-table-thead>tr>th {
+            background: #f8fafc;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .ant-table-tbody>tr>td {
+            padding: 16px 24px;
+        }
+
+        .ant-tag {
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 12px;
+        }
+    }
+
+    .status-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        
+        &.draft {
+            background-color: #fef3c7 !important;
+            color: #d97706 !important;
+        }
+        
+        &.pending {
+            background-color: #dbeafe !important;
+            color: #2563eb !important;
+        }
+        
+        &.paid {
+            background-color: #d1fae5 !important;
+            color: #059669 !important;
+        }
+        
+        &.overdue {
+            background-color: #fee2e2 !important;
+            color: #dc2626 !important;
+        }
+
+        &:hover {
+            transform: translateY(-1px);
+        }
+    }
+}
+
+// Modal styles
+.ant-modal {
+    .ant-modal-content {
+        border-radius: 12px;
+
+        .ant-modal-header {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-modal-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 24px;
+
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .ant-form-item {
+                margin-bottom: 16px;
+
+                .ant-input-prefix {
+                    color: #1890ff;
+                    margin-right: 8px;
+                }
+
+                .ant-input,
+                .ant-input-number,
+                .ant-select-selector,
+                .ant-picker {
+                    border-radius: 8px;
+                    border-color: #e5e7eb;
+
+
+                }
+            }
+        }
+
+        .ant-modal-footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-btn {
+                border-radius: 8px;
+                height: 40px;
+                padding: 0 16px;
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .project-invoices {
+        .form-row {
+            grid-template-columns: 1fr !important;
+        }
+
+        .invoice-info {
+            flex-direction: column;
+            gap: 8px;
+
+            .invoice-icon {
+                display: none;
+            }
+        }
+
+        .action-buttons {
+            flex-direction: column;
+            gap: 4px;
+
+            .ant-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+// Product selection styles
+.ant-select-dropdown {
+  .ant-select-item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 4px 0;
+    transition: all 0.2s ease;
+
+    &-option-selected {
+      background-color: #e6f7ff !important;
+      font-weight: 500;
+    }
+
+    &-option-active {
+      background-color: #f0f7ff !important;
+    }
+  }
+}
+
+// Item list styles
+.items-list {
+  .item-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #1890ff;
+      box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+    }
+
+    .item-header {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+
+      .item-image {
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-right: 16px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .item-info {
+        flex: 1;
+
+        .item-name {
+          font-weight: 500;
+          color: #1f2937;
+          margin-bottom: 4px;
+        }
+
+        .item-price {
+          font-size: 12px;
+          color: #6b7280;
+        }
+      }
+
+      .delete-button {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ef4444;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #fee2e2;
+        }
+      }
+    }
+
+    .item-details {
+      padding: 16px;
+
+      .ant-form-item {
+        margin-bottom: 16px;
+
+        &-label {
+          font-weight: 500;
+          color: #374151;
+        }
+
+        .ant-input-number {
+          width: 100%;
+          border-radius: 8px;
+
+          &-handler-wrap {
+            border-radius: 0 8px 8px 0;
+          }
+        }
+
+        .ant-select {
+          width: 100%;
+
+          .ant-select-selector {
+            border-radius: 8px;
+            height: 40px;
+            padding: 4px 12px;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Add product button styles
+.add-product-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px dashed #1890ff;
+  color: #1890ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+
+  &:hover {
+    background-color: #e6f7ff;
+    border-color: #40a9ff;
+    color: #40a9ff;
+  }
+
+  .anticon {
+    font-size: 16px;
+  }
+}
+
+// Form Elements
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  
+  .icon {
+    color: #1890ff;
+  }
+  
+  .required {
+    color: #ff4d4f;
+  }
+}
+
+// Improved table styling
+.table-style-container {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  .proposal-items-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    tbody tr {
+      &:hover {
+        background-color: #f9fafb;
+      }
+      
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+    
+    .item-row {
+      transition: all 0.2s ease;
+    }
+
+    .table-input {
+      width: 100%;
+      border-radius: 6px;
+      height: 36px;
+      border-color: #e5e7eb;
+      transition: all 0.3s;
+      background-color: #f9fafb;
+      
+      &:hover, &:focus {
+        background-color: #ffffff;
+        border-color: #1890ff;
+      }
+    }
+
+    .table-input-number {
+      width: 100%;
+      border-radius: 6px;
+      height: 36px;
+      border-color: #e5e7eb;
+      transition: all 0.3s;
+      background-color: #f9fafb;
+      padding: 0 16px;
+      
+      &:hover, &:focus {
+        background-color: #ffffff;
+        border-color: #1890ff;
+      }
+      
+      .ant-input-number-input {
+        height: 36px;
+      }
+    }
+    
+    .table-select {
+      width: 100%;
+      
+      .ant-select-selector {
+        border-radius: 6px !important;
+        height: 36px !important;
+        border-color: #e5e7eb !important;
+        background-color: #f9fafb !important;
+        transition: all 0.3s !important;
+        padding: 0 11px !important;
+        
+        .ant-select-selection-item {
+          line-height: 36px !important;
+        }
+      }
+      
+      &:hover .ant-select-selector, &.ant-select-focused .ant-select-selector {
+        background-color: #ffffff !important;
+        border-color: #1890ff !important;
+      }
+    }
+
+    .delete-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.2s;
+      
+      &:hover {
+        background-color: #fff1f0;
+      }
+    }
+  }
+
+  .add-item-container {
+    margin: 16px;
+    text-align: left;
+
+    .add-item-btn {
+      background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+      border: none;
+      border-radius: 8px;
+      height: 40px;
+      padding: 0 24px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2);
+
+      &:hover {
+        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+      }
+    }
+  }
+}
+
+// Enhanced amount field styling
+.amount-field {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  background-color: #f0f9ff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  
+  .currency-symbol {
+    margin-right: 4px;
+    color: #666;
+  }
+  
+  .amount-value {
+    font-weight: 600;
+    // color: #1890ff;
+  }
+}
+
+// Dropdown styling
+.ant-select-dropdown {
+  .ant-select-item {
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+    
+    &-option {
+      border-radius: 4px;
+      margin: 4px 8px;
+      
+      &-selected {
+        background-color: #e6f7ff !important;
+        font-weight: 500;
+      }
+      
+      &-active {
+        background-color: #f0f7ff !important;
+      }
+    }
+  }
+}
+
+// Summary Card
+.summary-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  .summary-content {
+    max-width: 400px;
+    margin-left: auto;
+    
+    .ant-divider {
+      margin: 16px 0;
+    }
+  }
+}
+
+// Form Footer
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+
+  .cancel-btn {
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+
+  .create-btn {
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+    border: none;
+
+    &:hover {
+      background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+    }
+  }
+}
+
+// Blue header styling
+.blue-header {
+  background: #1890ff !important;
+}
+
+// Update modal styling for the new design
+.pro-modal.custom-modal {
+  .modal-header {
+    background: #1890ff;
+  }
+  
+  .form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}

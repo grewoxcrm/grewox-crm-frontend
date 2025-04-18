@@ -1,0 +1,554 @@
+@import '../../../../styles/theme/theme.scss';
+
+// Common hover effect mixin
+@mixin hover-shadow {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.tax-page {
+    padding: 24px;
+    background: $background-color;
+
+    .page-breadcrumb {
+        margin-bottom: 16px;
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            .ant-breadcrumb-link {
+                color: $text-color-light;
+                transition: all 0.3s ease;
+
+                a {
+                    color: $text-color-light;
+                    display: inline-flex;
+                    align-items: center;
+
+                    &:hover {
+                        color: #1677ff;
+                    }
+                }
+
+                &:last-child {
+                    color: $text-color-dark;
+                    font-weight: 500;
+                }
+            }
+
+            .ant-breadcrumb-separator {
+                margin: 0 8px;
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .page-header {
+        @include hover-shadow;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        background: white;
+        padding: 24px 32px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .page-title {
+            text-align: left;
+            margin-bottom: 0;
+            flex-shrink: 0;
+
+            h2 {
+                color: $text-color-dark;
+                margin-bottom: 4px;
+                font-size: 28px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .ant-typography-secondary {
+                color: $text-color-light;
+                font-size: 15px;
+                display: block;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            width: 100%;
+            max-width: 800px;
+
+            .search-input {
+                flex: 1;
+                max-width: 360px;
+                min-width: 200px;
+
+                .ant-input-affix-wrapper {
+                    border-radius: 40px;
+                    height: 40px;
+                    padding: 4px 16px;
+                    transition: all 0.3s ease;
+                    border: 1px solid $border-color;
+                    width: 100%;
+
+                    .anticon {
+                        color: $text-color-light;
+                        margin-right: 8px;
+                        font-size: 16px;
+                    }
+
+                    .ant-input {
+                        font-size: 14px;
+                        background: transparent;
+                        border: none;
+                        padding: 0;
+                        margin: 0 4px;
+
+                        &::placeholder {
+                            color: rgba($text-color, 0.45);
+                        }
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &-focused {
+                        border-color: #1677ff;
+                        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+                    }
+                }
+            }
+
+            .action-buttons {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-shrink: 0;
+
+                .export-button,
+                .add-button {
+                    height: 40px;
+                    padding: 0 20px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    svg {
+                        font-size: 16px;
+                    }
+                }
+
+                .export-button {
+                    border: 1px solid $border-color;
+                    background: white;
+
+                    &:hover {
+                        color: #1677ff;
+                        border-color: #1677ff;
+                        transform: translateY(-2px);
+                    }
+                }
+
+                .add-button {
+                    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                    border: none;
+                    color: white;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+
+    .tax-table-card {
+        @include hover-shadow;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .ant-card-body {
+            padding: 0;
+        }
+
+        .ant-table-wrapper {
+            .ant-table {
+                background: transparent;
+
+                .ant-table-thead > tr > th {
+                    background: #fafafa;
+                    font-weight: 600;
+                    color: $text-color-dark;
+                    padding: 16px 24px;
+                    border-bottom: 1px solid $border-color;
+
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                .ant-table-tbody > tr > td {
+                    padding: 16px 24px;
+                    border-bottom: 1px solid $border-color;
+
+                    &:last-child {
+                        padding-right: 24px;
+                    }
+                }
+
+                .ant-table-row {
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #fafafa;
+                    }
+                }
+            }
+
+            .ant-table-pagination {
+                margin: 16px 24px;
+            }
+        }
+    }
+
+    .tax-cards-grid {
+        padding: 24px;
+    }
+}
+
+// Tax Card Styles
+.tax-card {
+    .ant-card-cover {
+        padding: 24px 24px 0;
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        
+        .tax-avatar {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 500;
+            color: #1890ff;
+        }
+    }
+
+    .tax-info {
+        text-align: center;
+        margin-top: -32px;
+        padding: 0 16px;
+
+        .tax-title {
+            margin-top: 16px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .tax-percentage {
+            color: rgba(0, 0, 0, 0.45);
+            margin-bottom: 16px;
+        }
+    }
+
+    .tax-meta {
+        border-top: 1px solid #f0f0f0;
+        padding: 12px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .status-badge {
+            &.active {
+                color: #52c41a;
+                background: #f6ffed;
+                border: 1px solid #b7eb8f;
+            }
+
+            &.inactive {
+                color: #ff4d4f;
+                background: #fff1f0;
+                border: 1px solid #ffa39e;
+            }
+        }
+    }
+
+    .tax-actions {
+        padding: 12px;
+        border-top: 1px solid #f0f0f0;
+        display: flex;
+        justify-content: space-around;
+
+        .action-button {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.45);
+            transition: color 0.3s;
+
+            &:hover {
+                color: #1890ff;
+            }
+
+            &.delete {
+                &:hover {
+                    color: #ff4d4f;
+                }
+            }
+        }
+    }
+}
+
+// Tax List Styles
+.tax-list-table {
+    .ant-table-thead > tr > th {
+        background: #fafafa;
+        font-weight: 500;
+    }
+
+    .status-badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+
+        &.active {
+            color: #52c41a;
+            background: #f6ffed;
+            border: 1px solid #b7eb8f;
+        }
+
+        &.inactive {
+            color: #ff4d4f;
+            background: #fff1f0;
+            border: 1px solid #ffa39e;
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+// Create/Edit Modal Styles
+.tax-form-modal {
+    .ant-modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+
+        .ant-modal-header {
+            background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+            padding: 16px 24px;
+            border-bottom: none;
+
+            .ant-modal-title {
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 24px;
+        }
+
+        .ant-modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid $border-color;
+        }
+    }
+
+    .ant-form {
+        .ant-form-item {
+            margin-bottom: 24px;
+
+            .ant-form-item-label {
+                padding-bottom: 8px;
+
+                label {
+                    font-weight: 500;
+                    color: $text-color-dark;
+                }
+            }
+
+            .ant-input,
+            .ant-select-selector,
+            .ant-picker {
+                border-radius: 8px;
+            }
+        }
+    }
+
+    .tax-create-form {
+        .styled-input {
+            border-radius: 10px;
+            height: 48px;
+            background-color: #f8fafc;
+            border: 1px solid #e6e8eb;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            
+            &:hover, &:focus {
+                border-color: #1890ff;
+                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+            }
+            
+            .input-icon {
+                color: #1890ff;
+                font-size: 16px;
+                margin-right: 8px;
+            }
+        }
+        
+        .ant-input-number {
+            width: 100%;
+            border-radius: 10px;
+            height: 48px;
+            
+            .ant-input-number-input-wrap {
+                height: 100%;
+            }
+            
+            input {
+                height: 100%;
+                padding: 8px 12px;
+            }
+        }
+        
+        .switch-item {
+            margin-top: 12px;
+            
+            .ant-switch {
+                background-color: #f5222d;
+                
+                &.ant-switch-checked {
+                    background-color: #52c41a;
+                }
+            }
+        }
+        
+        .ant-form-item-label > label {
+            color: #1f2937;
+            font-weight: 500;
+        }
+        
+        .cancel-button {
+            padding: 8px 24px;
+            height: 44px;
+            border-radius: 10px;
+            border: 1px solid #e6e8eb;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            &:hover {
+                color: #1890ff;
+                border-color: #1890ff;
+            }
+        }
+        
+        .submit-button {
+            padding: 8px 32px;
+            height: 44px;
+            border-radius: 10px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+            border: none;
+            box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            &:hover {
+                background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                transform: translateY(-2px);
+            }
+        }
+    }
+    
+    // Override for antd's prefix icons inside inputs
+    .ant-input-prefix {
+        margin-right: 8px;
+        
+        .input-icon {
+            color: #1890ff;
+            font-size: 16px;
+        }
+    }
+    
+    .ant-form-item {
+        margin-bottom: 20px;
+    }
+}
+
+// Dropdown menu styles
+.ant-dropdown-menu {
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    .ant-dropdown-menu-item {
+        padding: 8px 12px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &:hover {
+            background: #f0f2f5;
+        }
+
+        &-danger {
+            color: #ff4d4f;
+            
+            &:hover {
+                background: #fff1f0;
+            }
+        }
+    }
+}
+
+// Add nicer placeholder styling
+::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+}
+
+// Fix for InputNumber component to match Input
+.ant-input-number {
+    width: 100%;
+    
+    .ant-input-number-handler-wrap {
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+    
+    &:hover .ant-input-number-handler-wrap {
+        opacity: 1;
+    }
+}

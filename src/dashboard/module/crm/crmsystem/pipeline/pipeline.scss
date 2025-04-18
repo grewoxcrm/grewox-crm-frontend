@@ -1,0 +1,472 @@
+.pipeline-wrapper {
+  padding: 24px;
+  min-height: 100%;
+
+  .pipeline-container {
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+
+      .pipeline-card {
+        background: white;
+        border-radius: 16px;
+        padding: 24px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(24, 144, 255, 0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+          0 4px 6px rgba(24, 144, 255, 0.02);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 24px rgba(24, 144, 255, 0.08),
+            0 4px 8px rgba(24, 144, 255, 0.04);
+          border-color: rgba(24, 144, 255, 0.2);
+
+          &::before {
+            opacity: 1;
+          }
+
+          .pipeline-icon {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(24, 144, 255, 0.2);
+          }
+        }
+
+        .pipeline-content {
+          .pipeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            .pipeline-info-wrapper {
+              display: flex;
+              gap: 16px;
+              align-items: center;
+
+              .pipeline-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 20px;
+                transition: all 0.3s ease;
+                background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+                flex-shrink: 0;
+
+                svg {
+                  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+                }
+              }
+
+              .pipeline-info {
+                h3 {
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 600;
+                  color: #1a1f36;
+                  line-height: 1.3;
+                }
+              }
+            }
+
+            .pipeline-actions {
+              display: flex;
+              gap: 8px;
+              margin-left: 16px;
+
+              .edit-button,
+              .delete-button {
+                width: 32px;
+                height: 32px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                background: transparent;
+
+                svg {
+                  font-size: 16px;
+                  transition: transform 0.2s ease;
+                }
+
+                &:hover {
+                  svg {
+                    transform: scale(1.1);
+                  }
+                }
+              }
+
+              .edit-button {
+                color: #1890ff;
+
+                &:hover {
+                  color: #096dd9;
+                  background-color: rgba(24, 144, 255, 0.08);
+                }
+              }
+
+              .delete-button {
+                color: #ef4444;
+
+                &:hover {
+                  color: #dc2626;
+                  background-color: rgba(239, 68, 68, 0.08);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .no-pipelines {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 48px;
+        background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+        border-radius: 16px;
+        border: 2px dashed rgba(24, 144, 255, 0.2);
+        color: #64748b;
+
+        svg {
+          margin-bottom: 16px;
+          color: #1890ff;
+          opacity: 0.5;
+          filter: drop-shadow(0 4px 6px rgba(24, 144, 255, 0.1));
+        }
+
+        p {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.pipeline-table {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
+    0 4px 6px rgba(24, 144, 255, 0.02);
+
+  .ant-table {
+    background: transparent;
+  }
+
+  .ant-table-thead>tr>th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #1a1f36;
+  }
+
+  .ant-table-tbody>tr>td {
+    border-bottom: 1px solid rgba(24, 144, 255, 0.08);
+  }
+
+  .ant-table-tbody>tr:hover>td {
+    background: rgba(24, 144, 255, 0.02);
+  }
+
+  .ant-pagination {
+    margin: 16px 24px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(24, 144, 255, 0.08);
+    text-align: right;
+
+    .ant-pagination-item {
+      border-radius: 6px;
+      min-width: 32px;
+      height: 32px;
+      line-height: 32px;
+
+      &-active {
+        border-color: #1890ff;
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+
+        a {
+          color: white;
+        }
+      }
+    }
+
+    .ant-pagination-total-text,
+    .ant-pagination-options,
+    .ant-pagination-jump-prev,
+    .ant-pagination-jump-next {
+      display: none;
+    }
+
+    .ant-pagination-prev,
+    .ant-pagination-next {
+      min-width: 32px;
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+}
+
+.grid-pagination {
+  margin-top: 24px;
+
+  .pagination-only {
+    background: transparent;
+    box-shadow: none;
+
+    .ant-table-container {
+      display: none;
+    }
+
+    .ant-pagination {
+      margin: 0 24px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(24, 144, 255, 0.08);
+      text-align: right;
+
+      .ant-pagination-item {
+        border-radius: 6px;
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
+
+        &-active {
+          border-color: #1890ff;
+          background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+
+          a {
+            color: white;
+          }
+        }
+      }
+
+      .ant-pagination-total-text,
+      .ant-pagination-options,
+      .ant-pagination-jump-prev,
+      .ant-pagination-jump-next {
+        display: none;
+      }
+
+      .ant-pagination-prev,
+      .ant-pagination-next {
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+}
+
+// Modal Styles
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    padding: 24px;
+    position: relative;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+
+      h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #1a1f36;
+      }
+
+      .close-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        border: none;
+        background: rgba(#1a1f36, 0.05);
+        color: #1a1f36;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(#1a1f36, 0.1);
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #1a1f36;
+
+        .required {
+          color: #FF4842;
+          margin-left: 4px;
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #4318FF;
+          box-shadow: 0 0 0 3px rgba(#4318FF, 0.1);
+        }
+
+        &::placeholder {
+          color: #a0aec0;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+
+      button {
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.cancel-btn {
+          background: transparent;
+          border: 1px solid #e9ecef;
+          color: #697386;
+
+          &:hover {
+            background: #f8f9fa;
+          }
+        }
+
+        &.submit-btn {
+          background: #4318FF;
+          border: none;
+          color: white;
+
+          &:hover {
+            background: darken(#4318FF, 5%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Action dropdown styles
+.pipeline-actions-dropdown {
+  .ant-dropdown-menu {
+    padding: 4px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .ant-dropdown-menu-item {
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(24, 144, 255, 0.05);
+      }
+
+      &-icon {
+        font-size: 16px;
+      }
+
+      &-danger {
+        &:hover {
+          background: rgba(255, 77, 79, 0.05);
+          color: #ff4d4f;
+        }
+      }
+    }
+  }
+}
+
+.action-dropdown-button {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #1890ff;
+  }
+}
+
+// Add hover effects for buttons
+.ant-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &.ant-btn-primary {
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+    border: none;
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+
+    &:hover {
+      background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+      box-shadow: 0 6px 16px rgba(24, 144, 255, 0.25);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

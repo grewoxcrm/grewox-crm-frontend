@@ -1,0 +1,549 @@
+@import '../../../../styles/theme/theme.scss';
+
+// Variables
+$primary-color: #1890ff;
+$text-primary: #2c3e50;
+$text-secondary: #666;
+$border-radius: 8px;
+$spacing-unit: 8px;
+
+// Mixins
+@mixin card-shadow() {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+@mixin section-spacing() {
+    padding: $spacing-unit * 4;
+}
+
+// Common hover effect mixin
+@mixin hover-shadow {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.offer-letters-page {
+    padding: 24px;
+    background: $background-color;
+
+    .page-breadcrumb {
+        margin-bottom: 16px;
+
+        .ant-breadcrumb {
+            font-size: 14px;
+
+            .ant-breadcrumb-link {
+                color: $text-color-light;
+                transition: all 0.3s ease;
+
+                a {
+                    color: $text-color-light;
+                    display: inline-flex;
+                    align-items: center;
+
+                    &:hover {
+                        color: #1677ff;
+                    }
+                }
+
+                &:last-child {
+                    color: $text-color-dark;
+                    font-weight: 500;
+                }
+            }
+
+            .ant-breadcrumb-separator {
+                margin: 0 8px;
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .page-header {
+        @include hover-shadow;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        background: white;
+        padding: 24px 32px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .page-title {
+            text-align: left;
+            margin-bottom: 0;
+            flex-shrink: 0;
+
+            h2 {
+                color: $text-color-dark;
+                margin-bottom: 4px;
+                font-size: 28px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+
+            .ant-typography-secondary {
+                color: $text-color-light;
+                font-size: 15px;
+                display: block;
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            width: 100%;
+            max-width: 800px;
+
+            .search-input {
+                flex: 1;
+                max-width: 360px;
+                min-width: 200px;
+
+                .ant-input-affix-wrapper {
+                    border-radius: 40px;
+                    height: 40px;
+                    padding: 4px 16px;
+                    transition: all 0.3s ease;
+                    border: 1px solid $border-color;
+                    width: 100%;
+
+                    .anticon {
+                        color: $text-color-light;
+                        margin-right: 8px;
+                        font-size: 16px;
+                    }
+
+                    .ant-input {
+                        font-size: 14px;
+                        background: transparent;
+                        border: none;
+                        padding: 0;
+                        margin: 0 4px;
+
+                        &::placeholder {
+                            color: rgba($text-color, 0.45);
+                        }
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &-focused {
+                        border-color: #1677ff;
+                        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+                    }
+                }
+            }
+
+            .action-buttons {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-shrink: 0;
+
+                .export-button,
+                .add-button {
+                    height: 40px;
+                    padding: 0 20px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    border-radius: 8px;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+
+                    svg {
+                        font-size: 16px;
+                    }
+                }
+
+                .export-button {
+                    border: 1px solid $border-color;
+                    background: white;
+
+                    &:hover {
+                        color: #1677ff;
+                        border-color: #1677ff;
+                        transform: translateY(-2px);
+                    }
+                }
+
+                .add-button {
+                    background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+                    border: none;
+                    color: white;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+
+    .offer-letters-table-card {
+        @include hover-shadow;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+        .ant-card-body {
+            padding: 0;
+        }
+
+        .ant-table-wrapper {
+            .ant-table {
+                background: transparent;
+
+                .ant-table-thead>tr>th {
+                    background: #fafafa;
+                    font-weight: 600;
+                    color: $text-color-dark;
+                    padding: 16px 24px;
+                    border-bottom: 1px solid $border-color;
+
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                .ant-table-tbody>tr>td {
+                    padding: 16px 24px;
+                    border-bottom: 1px solid $border-color;
+
+                    &:last-child {
+                        padding-right: 24px;
+                    }
+                }
+
+                .ant-table-row {
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #fafafa;
+                    }
+                }
+            }
+
+            .ant-table-pagination {
+                margin: 16px 24px;
+            }
+        }
+    }
+}
+
+// Create/Edit Modal Styles
+.offer-letter-form-modal {
+    .ant-modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+
+        .ant-modal-header {
+            background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+            padding: 16px 24px;
+            border-bottom: none;
+
+            .ant-modal-title {
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 24px;
+        }
+
+        .ant-modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid $border-color;
+        }
+    }
+
+    .ant-form {
+        .ant-form-item {
+            margin-bottom: 24px;
+
+            .ant-form-item-label {
+                padding-bottom: 8px;
+
+                label {
+                    font-weight: 500;
+                    color: $text-color-dark;
+                }
+            }
+
+            .ant-input,
+            .ant-select-selector,
+            .ant-picker,
+            .ant-input-number {
+                border-radius: 8px;
+                height: 40px;
+            }
+
+            .ant-input-number {
+                width: 100%;
+            }
+
+            .ant-upload {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Modal Styles
+.offer-letter-modal {
+    .ant-modal-content {
+        border-radius: $border-radius;
+    }
+
+    .ant-modal-header {
+        border-radius: $border-radius $border-radius 0 0;
+    }
+}
+
+// Container Layout
+.offer-letter-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 3;
+
+    // Form Section
+    .form-section {
+        width: 100%;
+
+        .ant-form {
+            .ant-form-item {
+                margin-bottom: $spacing-unit * 2;
+            }
+        }
+    }
+
+    // Preview Section
+    .preview-section {
+        width: 100%;
+
+        .preview-header {
+            margin-bottom: $spacing-unit * 2;
+
+            h2 {
+                font-size: 16px;
+                font-weight: 500;
+                color: $text-primary;
+                margin: 0;
+            }
+        }
+
+        .preview-content {
+            background: white;
+            border-radius: $border-radius;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            padding: $spacing-unit * 4;
+
+            // Letter Header
+            .letter-header {
+                margin-bottom: $spacing-unit * 6;
+
+                .company-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: $spacing-unit * 4;
+
+                    h3 {
+                        font-weight: 500;
+                        color: $text-primary;
+                        margin: 0;
+                    }
+
+                    span {
+                        color: $text-secondary;
+                    }
+                }
+
+                h1 {
+                    text-align: center;
+                    font-size: 24px;
+                    color: $text-primary;
+                    margin: 0;
+                }
+            }
+
+            // Letter Body
+            .letter-body {
+                color: $text-primary;
+                line-height: 1.6;
+
+                .salutation {
+                    margin-bottom: $spacing-unit * 3;
+                }
+
+                .content-block {
+                    p {
+                        margin-bottom: $spacing-unit * 2;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                // Signature Block
+                .signature-block {
+                    margin-top: $spacing-unit * 6;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .signature {
+                        p {
+                            margin: 0;
+
+                            &:first-child {
+                                color: $text-secondary;
+                                margin-bottom: $spacing-unit;
+                            }
+
+                            &:last-child {
+                                font-weight: 500;
+                                color: $text-primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+    .offer-letter-container {
+        .preview-section {
+            .preview-content {
+                padding: $spacing-unit * 2;
+            }
+
+            .signature-block {
+                flex-direction: column;
+                gap: $spacing-unit * 3;
+            }
+        }
+    }
+}
+
+// Adjust modal width
+.ant-modal {
+    &.ant-modal-large {
+        width: 800px !important;
+        max-width: 90vw;
+    }
+}
+
+.custom-modal {
+    .ant-modal-content {
+        padding: 0;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        padding: 24px;
+        color: #ffffff;
+        position: relative;
+
+        .header-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+    }
+
+    .ant-form {
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+
+            .ant-form-item {
+                margin-bottom: 0;
+
+                .ant-form-item-label {
+                    padding-bottom: 8px;
+
+                    label {
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #2c3e50;
+                    }
+                }
+
+                .ant-input-affix-wrapper {
+                    border-radius: 10px;
+                    padding: 8px 16px;
+                    height: 48px;
+                    background-color: #f8fafc;
+                    border: 1px solid #e6e8eb;
+                    transition: all 0.3s ease;
+
+                    .ant-input-prefix {
+                        color: #1890ff;
+                        margin-right: 8px;
+                        font-size: 16px;
+                    }
+                }
+
+                .ant-picker {
+                    border-radius: 10px !important;
+                    height: 48px !important;
+                    background-color: #f8fafc !important;
+                    border: 1px solid #e6e8eb !important;
+                    padding: 8px 16px !important;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .ant-picker {
+                    width: 100%;
+                }
+            }
+        }
+
+        textarea.ant-input {
+            border-radius: 10px;
+            padding: 8px 16px;
+            background-color: #f8fafc;
+            border: 1px solid #e6e8eb;
+            min-height: 100px;
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .custom-modal {
+        .ant-form {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

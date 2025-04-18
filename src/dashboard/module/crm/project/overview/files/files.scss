@@ -1,0 +1,172 @@
+.project-files {
+    .ant-card {
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-card-head-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .ant-card-extra {
+                .ant-btn {
+                    border-radius: 8px;
+                    height: 40px;
+                    padding: 0 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                    border: none;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+            }
+        }
+
+        .ant-card-body {
+            padding: 0;
+        }
+    }
+
+    .file-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .file-icon {
+            font-size: 24px;
+
+            &.document {
+                color: #1890ff;
+            }
+
+            &.design {
+                color: #722ed1;
+            }
+
+            &.spreadsheet {
+                color: #52c41a;
+            }
+        }
+
+        .file-details {
+            h4 {
+                margin: 0;
+                font-size: 14px;
+                font-weight: 500;
+                color: #1f2937;
+            }
+
+            span {
+                font-size: 12px;
+                color: #6b7280;
+            }
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+
+        .ant-btn {
+            padding: 4px 8px;
+            height: auto;
+
+            &.download-button {
+                color: #1890ff;
+
+                &:hover {
+                    background: rgba(24, 144, 255, 0.1);
+                }
+            }
+
+            &.delete-button {
+                color: #ff4d4f;
+
+                &:hover {
+                    background: rgba(255, 77, 79, 0.1);
+                }
+            }
+        }
+    }
+
+    .ant-table {
+        .ant-table-thead>tr>th {
+            background: #f8fafc;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .ant-table-tbody>tr>td {
+            padding: 16px 24px;
+        }
+
+        .ant-tag {
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 12px;
+        }
+    }
+}
+
+// Upload modal styles
+.ant-modal {
+    .ant-upload-drag {
+        border-radius: 8px;
+        border-color: #e5e7eb;
+        background: #f8fafc;
+        padding: 24px;
+
+        &:hover {
+            border-color: #1890ff;
+        }
+
+        .ant-upload-drag-icon {
+            margin-bottom: 16px;
+
+            svg {
+                font-size: 32px;
+                color: #1890ff;
+            }
+        }
+
+        .ant-upload-text {
+            color: #6b7280;
+            font-size: 14px;
+        }
+    }
+
+    .ant-input {
+        border-radius: 8px;
+        border-color: #e5e7eb;
+
+        &:hover,
+        &:focus {
+            border-color: #1890ff;
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .project-files {
+        .file-info {
+            .file-details {
+                h4 {
+                    font-size: 13px;
+                }
+
+                span {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}

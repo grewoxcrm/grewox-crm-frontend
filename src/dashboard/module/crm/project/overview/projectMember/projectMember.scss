@@ -1,0 +1,186 @@
+.project-member {
+    .ant-card {
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-card-head-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .ant-card-extra {
+                .ant-btn {
+                    border-radius: 8px;
+                    height: 40px;
+                    padding: 0 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+                    border: none;
+
+                    &:hover {
+                        background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+                    }
+                }
+            }
+        }
+
+        .ant-card-body {
+            padding: 0;
+        }
+    }
+
+    .member-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .ant-avatar {
+            flex-shrink: 0;
+        }
+
+        .member-details {
+            h4 {
+                margin: 0;
+                font-size: 14px;
+                font-weight: 500;
+                color: #1f2937;
+            }
+
+            span {
+                font-size: 12px;
+                color: #6b7280;
+            }
+        }
+    }
+
+    .contact-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #6b7280;
+
+        .icon {
+            font-size: 16px;
+        }
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+
+        .ant-btn {
+            padding: 4px 8px;
+            height: auto;
+
+            &.edit-button {
+                color: #1890ff;
+
+                &:hover {
+                    background: rgba(24, 144, 255, 0.1);
+                }
+            }
+
+            &.delete-button {
+                color: #ff4d4f;
+
+                &:hover {
+                    background: rgba(255, 77, 79, 0.1);
+                }
+            }
+        }
+    }
+
+    .ant-table {
+        .ant-table-thead>tr>th {
+            background: #f8fafc;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .ant-table-tbody>tr>td {
+            padding: 16px 24px;
+        }
+
+        .ant-tag {
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 12px;
+        }
+    }
+}
+
+// Modal styles
+.ant-modal {
+    .ant-modal-content {
+        border-radius: 12px;
+
+        .ant-modal-header {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-modal-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 24px;
+
+            .ant-form-item {
+                margin-bottom: 16px;
+
+                .ant-input-prefix {
+                    color: #1890ff;
+                    margin-right: 8px;
+                }
+
+                .ant-input,
+                .ant-select-selector {
+                    border-radius: 8px;
+                    border-color: #e5e7eb;
+
+
+                }
+            }
+        }
+
+        .ant-modal-footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-btn {
+                border-radius: 8px;
+                height: 40px;
+                padding: 0 16px;
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .project-member {
+        .member-info {
+            .member-details {
+                h4 {
+                    font-size: 13px;
+                }
+
+                span {
+                    font-size: 11px;
+                }
+            }
+        }
+
+        .contact-info {
+            font-size: 13px;
+        }
+    }
+}

@@ -1,0 +1,1566 @@
+// Variables
+$primary-color: #4096ff;
+$primary-light: #f0f7ff;
+$secondary-color: #7356f1;
+$border-color: #e8e8e8;
+$text-color: #333333;
+$text-light: #666666;
+$background-color: #f5f7fa;
+$success-color: #52c41a;
+$error-color: #ff4d4f;
+$warning-color: #faad14;
+$border-radius: 6px;
+
+// Add the page layout styling matching the ticket module
+.proposals-page {
+  padding: 24px;
+  background: $background-color;
+
+  .page-breadcrumb {
+    margin-bottom: 16px;
+
+    .ant-breadcrumb {
+      font-size: 14px;
+
+      .ant-breadcrumb-link {
+        color: $text-light;
+        transition: all 0.3s ease;
+
+        a {
+          color: $text-light;
+          display: inline-flex;
+          align-items: center;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+
+        &:last-child {
+          color: $text-color;
+          font-weight: 500;
+        }
+      }
+
+      .ant-breadcrumb-separator {
+        margin: 0 8px;
+        color: $text-light;
+      }
+    }
+  }
+
+  .page-header {
+    transition: all 0.3s ease;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: white;
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    .page-title {
+      text-align: left;
+      margin-bottom: 0;
+      flex-shrink: 0;
+
+      h2 {
+        color: $text-color;
+        margin-bottom: 4px;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .ant-typography-secondary {
+        color: $text-light;
+        font-size: 15px;
+        display: block;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      width: 100%;
+      max-width: 800px;
+
+      .search-input {
+        flex: 1;
+        max-width: 360px;
+        min-width: 200px;
+
+        .ant-input-affix-wrapper {
+          border-radius: 40px;
+          height: 40px;
+          padding: 4px 16px;
+          transition: all 0.3s ease;
+          border: 1px solid $border-color;
+          width: 100%;
+
+          .anticon,
+          svg {
+            color: $text-light;
+            margin-right: 8px;
+            font-size: 16px;
+          }
+
+          .ant-input {
+            font-size: 14px;
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin: 0 4px;
+
+            &::placeholder {
+              color: rgba($text-color, 0.45);
+            }
+          }
+
+          &:hover,
+          &:focus,
+          &-focused {
+            border-color: $primary-color;
+            box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+          }
+        }
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+
+        .export-button,
+        .add-button {
+          height: 40px;
+          padding: 0 20px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          border-radius: 8px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+
+          svg {
+            font-size: 16px;
+          }
+        }
+
+        .export-button {
+          border: 1px solid $border-color;
+          background: white;
+
+          &:hover {
+            color: $primary-color;
+            border-color: $primary-color;
+            transform: translateY(-2px);
+          }
+        }
+
+        .add-button {
+          background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+          border: none;
+          color: white;
+
+          &:hover {
+            background: linear-gradient(135deg, lighten($primary-color, 5%) 0%, darken($primary-color, 5%) 100%);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  .proposals-table-card {
+    transition: all 0.3s ease;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    .ant-card-body {
+      padding: 0;
+    }
+
+    .ant-table-wrapper {
+      .ant-table {
+        background: transparent;
+
+        .ant-table-thead>tr>th {
+          background: #fafafa;
+          font-weight: 600;
+          color: $text-color;
+          padding: 16px 24px;
+          border-bottom: 1px solid $border-color;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        .ant-table-tbody>tr>td {
+          padding: 16px 24px;
+          border-bottom: 1px solid $border-color;
+
+          &:last-child {
+            padding-right: 24px;
+          }
+        }
+
+        .ant-table-row {
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #fafafa;
+          }
+        }
+      }
+
+      .ant-table-pagination {
+        margin: 16px 24px;
+      }
+    }
+  }
+}
+
+// Status tag styles
+.status-tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.draft {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+  }
+
+  &.sent {
+    background-color: #fff7e6;
+    color: #fa8c16;
+    border: 1px solid #ffd591;
+  }
+
+  &.accepted {
+    background-color: #f6ffed;
+    color: #52c41a;
+    border: 1px solid #b7eb8f;
+  }
+
+  &.declined {
+    background-color: #fff1f0;
+    color: #f5222d;
+    border: 1px solid #ffa39e;
+  }
+
+  &.expired {
+    background-color: #f0f0f0;
+    color: #8c8c8c;
+    border: 1px solid #d9d9d9;
+  }
+}
+
+// Proposal Modal Styles
+.proposal-modal {
+  .ant-modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .ant-modal-header {
+    padding: 16px 24px;
+    background-color: white;
+    border-bottom: 1px solid $border-color;
+
+    .ant-modal-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: $text-color;
+    }
+  }
+
+  .ant-modal-body {
+    padding: 24px;
+    background-color: white;
+  }
+
+  .ant-modal-close {
+    color: $text-light;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  // Form styles
+  .ant-form {
+    .ant-form-item-label>label {
+      color: $text-color;
+      font-weight: 500;
+    }
+
+    .required-label::after {
+      content: "*";
+      color: $error-color;
+      margin-left: 4px;
+    }
+
+    // Input styles
+    .ant-input,
+    .ant-input-number,
+    .ant-select-selector,
+    .ant-picker {
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      height: 36px;
+      transition: all 0.3s;
+
+      &:hover,
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: none;
+      }
+    }
+
+    .ant-input-number-input {
+      height: 34px;
+    }
+
+    .ant-select-selector {
+      display: flex;
+      align-items: center;
+    }
+
+    .ant-picker {
+      width: 100%;
+    }
+
+    textarea.ant-input {
+      height: auto;
+      resize: vertical;
+      min-height: 80px;
+      border-radius: $border-radius;
+    }
+  }
+
+  // Items table
+  .items-section {
+    margin: 20px 0;
+
+    .items-table {
+      margin-bottom: 16px;
+      border-radius: $border-radius;
+      overflow: hidden;
+
+      .ant-table-thead>tr>th {
+        background-color: #f9f9f9;
+        color: $text-color;
+        font-weight: 500;
+        padding: 12px 16px;
+      }
+
+      .ant-table-tbody>tr>td {
+        padding: 8px 16px;
+        transition: background 0.3s;
+      }
+
+      .ant-table-tbody>tr:hover>td {
+        background-color: $primary-light;
+      }
+
+      .item-input,
+      .quantity-input,
+      .price-input,
+      .tax-input {
+        width: 100%;
+        border-radius: $border-radius;
+      }
+
+      .amount-text {
+        white-space: nowrap;
+        font-weight: 500;
+      }
+
+      .delete-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: $border-radius;
+
+        &:hover {
+          background-color: rgba($error-color, 0.1);
+        }
+      }
+    }
+
+    .add-item-btn {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      border-radius: $border-radius;
+      height: 36px;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: darken($primary-color, 5%);
+        border-color: darken($primary-color, 5%);
+      }
+    }
+  }
+
+  // Totals section
+  .totals-section {
+    margin: 24px 0;
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .value {
+        font-weight: 500;
+        min-width: 100px;
+        text-align: right;
+      }
+
+      &.discount-row {
+        .discount-label-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .discount-type-select {
+          width: 100px;
+
+          .ant-select-selector {
+            height: 24px !important;
+            padding: 0 8px !important;
+            border-radius: 6px;
+
+          }
+
+          .ant-select-selection-item {
+            line-height: 22px !important;
+            font-size: 12px;
+          }
+        }
+
+        .discount-input {
+          width: 100px;
+          text-align: right;
+        }
+      }
+
+      &.total-amount-row {
+        padding-top: 16px;
+        margin-top: 8px;
+        border-top: 2px solid $border-color;
+        border-bottom: none;
+
+        .total-value {
+          color: $primary-color;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  // Action buttons
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+
+    .cancel-btn {
+      border-radius: $border-radius;
+      height: 36px;
+      min-width: 100px;
+    }
+
+    .create-btn {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      border-radius: $border-radius;
+      height: 36px;
+      min-width: 100px;
+
+      &:hover {
+        background-color: darken($primary-color, 5%);
+        border-color: darken($primary-color, 5%);
+      }
+    }
+  }
+}
+
+// Mobile responsive adjustments
+@media (max-width: 768px) {
+  .proposal-modal {
+    .ant-modal-body {
+      padding: 16px;
+    }
+
+    .items-section {
+      overflow-x: auto;
+
+      .items-table {
+        width: 600px;
+      }
+    }
+
+    .totals-section {
+      .ant-col-offset-12 {
+        margin-left: 0;
+      }
+
+      .ant-col-12 {
+        width: 100%;
+      }
+    }
+
+    .form-actions {
+      flex-direction: column;
+
+      .cancel-btn,
+      .create-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Flat Design Modal Styles
+.proposal-modal.flat-design {
+  .ant-modal-content {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .ant-modal-header {
+    padding: 16px 24px;
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+
+    .ant-modal-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+  }
+
+  .ant-modal-body {
+    padding: 20px;
+  }
+
+  .ant-modal-close {
+    top: 17px;
+    right: 17px;
+  }
+
+  // Form elements
+  .form-label {
+    font-size: 14px;
+    color: #333;
+
+    &.required::before {
+      content: "* ";
+      color: #ff4d4f;
+      margin-right: 4px;
+    }
+  }
+
+  .flat-input,
+  .flat-select .ant-select-selector,
+  .flat-datepicker,
+  .flat-input-number,
+  .flat-textarea {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    height: 36px;
+    padding: 4px 11px;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: #40a9ff;
+    }
+
+    &:focus,
+    &-focused {
+      border-color: #40a9ff;
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    }
+  }
+
+  .flat-select .ant-select-selector {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+
+  .flat-datepicker {
+    width: 100%;
+
+    .ant-picker-input {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .flat-textarea {
+    height: auto;
+    min-height: 80px;
+  }
+
+  .flat-input-number {
+    width: 100%;
+    padding: 0;
+
+    .ant-input-number-input {
+      height: 34px;
+      padding: 0 11px;
+    }
+  }
+
+  // Items grid
+  .flat-items-grid {
+    margin: 24px 0;
+
+    .item-grid-header {
+      display: flex;
+      align-items: center;
+      background: #fafafa;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 8px 0;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .item-grid-row {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 8px 0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .column {
+      padding: 0 8px;
+
+      &.item {
+        flex: 1.4;
+      }
+
+      &.quantity {
+        flex: 0.6;
+      }
+
+      &.price {
+        flex: 0.8;
+      }
+
+      &.tax {
+        flex: 0.6;
+      }
+
+      &.amount {
+        flex: 0.8;
+        text-align: right;
+
+        .amount-display {
+          display: block;
+          padding: 8px 12px;
+        }
+      }
+
+      &.action {
+        flex: 0.4;
+        text-align: center;
+      }
+    }
+
+    .delete-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+
+      .delete-icon {
+        color: #ff4d4f;
+      }
+
+      &:hover {
+        color: #ff4d4f;
+        background: rgba(255, 77, 79, 0.1);
+      }
+    }
+
+    .add-items-btn {
+      margin-top: 16px;
+      height: 36px;
+      padding: 0 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      background: #1890ff;
+      border-color: #1890ff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: none;
+
+      &:hover {
+        background: #40a9ff;
+        border-color: #40a9ff;
+      }
+    }
+  }
+
+  // Totals section
+  .flat-totals {
+    margin: 24px 0;
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .value {
+        text-align: right;
+        min-width: 100px;
+      }
+
+      &.total-amount-row {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid #f0f0f0;
+
+        .total-value {
+          color: #1890ff;
+          font-size: 16px;
+        }
+      }
+
+      .discount-type-select {
+        .ant-select-selector {
+          height: 24px;
+          padding: 0 8px;
+
+          .ant-select-selection-item {
+            line-height: 22px;
+          }
+        }
+      }
+
+      .discount-input {
+        width: 100px;
+        height: 30px;
+      }
+    }
+  }
+
+  // Action buttons
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+
+    .cancel-btn,
+    .create-btn {
+      min-width: 80px;
+      height: 36px;
+      border-radius: 4px;
+      font-weight: normal;
+      font-size: 14px;
+      box-shadow: none;
+    }
+
+    .cancel-btn {
+      border: 1px solid #d9d9d9;
+      background: white;
+      color: rgba(0, 0, 0, 0.65);
+
+      &:hover {
+        border-color: #40a9ff;
+        color: #40a9ff;
+      }
+    }
+
+    .create-btn {
+      background: #1890ff;
+      border-color: #1890ff;
+
+      &:hover {
+        background: #40a9ff;
+        border-color: #40a9ff;
+      }
+    }
+  }
+}
+
+// Mobile responsive adjustments
+@media (max-width: 768px) {
+  .proposal-modal.flat-design {
+    .flat-items-grid {
+      .item-grid-header {
+        display: none;
+      }
+
+      .item-grid-row {
+        flex-wrap: wrap;
+        padding: 12px 0;
+
+        .column {
+          margin-bottom: 8px;
+
+          &.item,
+          &.quantity,
+          &.price,
+          &.tax,
+          &.amount {
+            flex: 1 0 50%;
+          }
+
+          &.action {
+            flex: 1 0 100%;
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .flat-totals {
+      .ant-col-offset-12 {
+        margin-left: 0;
+      }
+
+      .ant-col-12 {
+        width: 100%;
+      }
+    }
+
+    .form-actions {
+      flex-direction: column-reverse;
+
+      .cancel-btn,
+      .create-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Pro Modal Styles
+.pro-modal.custom-modal {
+  .ant-modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .modal-header {
+    transition: all 0.3s ease;
+  }
+
+  .proposal-items-grid {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .proposal-item-row {
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+}
+
+// Mobile responsive adjustments
+@media (max-width: 768px) {
+  .pro-modal.custom-modal {
+    .ant-form {
+      padding: 16px;
+
+      div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+
+      .proposal-items-grid {
+        overflow-x: auto;
+
+        .proposal-item-row {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 8px !important;
+          padding: 12px 8px !important;
+
+          >*:not(:nth-child(5)) {
+            grid-column: span 1;
+          }
+
+          >*:nth-child(5) {
+            grid-column: span 2;
+            justify-content: flex-end;
+          }
+        }
+      }
+
+      div[style*="maxWidth: '400px'"] {
+        max-width: 100% !important;
+      }
+
+      div[style*="display: 'flex'"][style*="justifyContent: 'flex-end'"] {
+        flex-direction: column;
+
+        .ant-btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Improved Table Style for Proposal Items
+.table-style-container {
+  margin-top: 20px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  background-color: #ffffff;
+
+  .proposal-items-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f5f7fa;
+      font-weight: 500;
+      color: #555;
+      white-space: nowrap;
+      height: 48px;
+      position: relative;
+      border-bottom: 1px solid #e8e8e8;
+
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 60%;
+        width: 1px;
+        background-color: #e8e8e8;
+      }
+
+      &:last-child:after {
+        display: none;
+      }
+    }
+
+    .item-data-row {
+      td {
+        padding: 12px 16px 6px;
+        border-bottom: none;
+      }
+
+      &:not(:first-child) td {
+        padding-top: 18px;
+      }
+    }
+
+    .item-description-row {
+      td {
+        padding: 0px 16px 12px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      &:last-child td {
+        border-bottom: none;
+      }
+    }
+
+    // Consistent input field styling
+    .item-input,
+    .quantity-input,
+    .price-input,
+    .tax-select .ant-select-selector {
+      border: 1px solid #d9d9d9 !important;
+      border-radius: 6px !important;
+      height: 36px !important;
+      transition: all 0.3s;
+
+      &:hover {
+        border-color: #40a9ff !important;
+      }
+
+      &:focus,
+      &-focused,
+      &.ant-input-focused,
+      &.ant-input-number-focused {
+        border-color: #40a9ff !important;
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1) !important;
+      }
+    }
+
+    // Text input specific styles
+    .item-input {
+      padding: 4px 11px;
+      line-height: 28px;
+    }
+
+    // Number input specific styles
+    .quantity-input,
+    .price-input {
+      .ant-input-number-input {
+        height: 34px;
+        text-align: center;
+      }
+    }
+
+    // Select specific styles
+    .tax-select {
+      .ant-select-selector {
+        padding: 0 11px !important;
+        display: flex;
+        align-items: center;
+
+        .ant-select-selection-item {
+          line-height: 1 !important;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+
+      .ant-select-selection-search {
+        height: 34px;
+        display: flex;
+        align-items: center;
+      }
+
+      &.ant-select-focused .ant-select-selector {
+        border-color: #40a9ff !important;
+        box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1) !important;
+      }
+    }
+
+    // Amount field styling
+    .amount-field {
+      display: flex;
+      align-items: center;
+      //   justify-content: flex-end;
+      background-color: #f8fafc;
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      height: 36px;
+      padding: 0 12px;
+      transition: all 0.3s;
+      font-weight: 500;
+      color: #262626;
+
+      &:hover {
+        background-color: #f0f7ff;
+        border-color: #40a9ff;
+      }
+
+      .currency-symbol {
+        color: #8c8c8c;
+        margin-right: 4px;
+        font-size: 14px;
+      }
+
+      .amount-value {
+        font-size: 14px;
+      }
+    }
+
+    // Delete button styling
+    .delete-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: rgba(255, 77, 79, 0.1);
+      }
+    }
+
+    // Column width adjustments
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 30%;
+    }
+
+    // Item
+    th:nth-child(2),
+    td:nth-child(2) {
+      width: 12%;
+    }
+
+    // Quantity
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 18%;
+    }
+
+    // Unit Price
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 12%;
+    }
+
+    // Tax
+    th:nth-child(5),
+    td:nth-child(5) {
+      width: 18%;
+    }
+
+    // Amount
+    th:nth-child(6),
+    td:nth-child(6) {
+      width: 10%;
+    }
+
+    // Action
+  }
+
+  .add-item-container {
+    padding: 16px;
+    background-color: #fafafa;
+    border-top: 1px solid #f0f0f0;
+
+    .add-item-btn {
+      background-color: #1677ff;
+      border: none;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #4096ff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .table-style-container {
+    overflow-x: auto;
+
+    .proposal-items-table {
+      min-width: 700px;
+    }
+  }
+}
+
+// Enhanced Summary Section
+.summary-card {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .summary-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    align-self: flex-end;
+    padding-right: 8px;
+  }
+
+  .summary-content {
+    background-color: #f8fafc;
+    border: 1px solid #e6e8eb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    width: 380px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #edf2f7;
+      }
+
+      .label {
+        font-size: 14px;
+        color: #64748b;
+      }
+
+      .value {
+        font-weight: 500;
+        min-width: 100px;
+        text-align: right;
+        color: #334155;
+      }
+
+      &.discount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .label {
+          font-size: 14px;
+          color: #64748b;
+        }
+
+        .discount-controls {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .discount-type {
+            width: 100px;
+
+            .ant-select-selector {
+              border-radius: 6px;
+              height: 36px !important;
+              display: flex;
+              align-items: center;
+              background-color: white;
+              border: 1px solid #e2e8f0;
+
+              .ant-select-selection-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                // font-weight: 500;
+                color: #333;
+              }
+            }
+
+            &:hover .ant-select-selector {
+              border-color: #4096ff;
+            }
+
+            &.ant-select-focused .ant-select-selector {
+              border-color: #4096ff;
+              box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+            }
+          }
+
+          .discount-input-wrapper {
+            position: relative;
+            width: 80px;
+
+            .discount-input {
+              width: 100%;
+              height: 36px;
+              background-color: white;
+              border: 1px solid #e2e8f0;
+              border-radius: 6px;
+              padding-right: 26px;
+              padding: 0 11px;
+
+              .ant-input-number-input {
+                height: 34px;
+                text-align: center;
+                font-weight: 500;
+                color: #333;
+                font-size: 14px;
+              }
+
+              &:hover {
+                border-color: #4096ff;
+              }
+
+              &:focus,
+              &.ant-input-number-focused {
+                border-color: #4096ff;
+                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+              }
+
+              // Remove increment/decrement controls
+              .ant-input-number-handler-wrap {
+                display: none;
+              }
+            }
+
+            .discount-symbol {
+              position: absolute;
+              right: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #64748b;
+              font-size: 14px;
+              font-weight: 500;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+
+      &.total {
+        margin-top: 4px;
+        padding-top: 12px;
+        // border-top: 2px dashed #e2e8f0;
+        border-bottom: none;
+
+        .label {
+          font-weight: 600;
+          font-size: 15px;
+          color: #1e293b;
+        }
+
+        .total-value {
+          color: #1677ff;
+          font-size: 18px;
+          font-weight: 600;
+          background: linear-gradient(135deg, #4096ff 0%, #1677ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .summary-card {
+    align-items: stretch;
+
+    .summary-title {
+      align-self: flex-start;
+      padding-left: 8px;
+    }
+
+    .summary-content {
+      width: 100%;
+    }
+  }
+}
+
+// Add these styles for the form footer buttons
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+
+  .cancel-btn {
+    padding: 8px 24px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid #e6e8eb;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #1677ff;
+      color: #1677ff;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .create-btn {
+    padding: 8px 32px;
+    height: 44px;
+    border-radius: 10px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+    border: none;
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.filter-section {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-right: 16px;
+
+    .search-input {
+        width: 250px;
+    }
+
+    .date-picker {
+        width: 180px;
+        
+        .ant-picker-input {
+            input {
+                &::placeholder {
+                    color: #8c8c8c;
+                }
+            }
+        }
+    }
+}
+
+.proposals-table {
+    .lead-title {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .valid-date {
+        display: flex;
+        align-items: center;
+        color: #666;
+    }
+
+    .description {
+        color: #666;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .items-list {
+        .item-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0f0f0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .item-name {
+                font-weight: 500;
+                color: #333;
+            }
+
+            .item-quantity {
+                color: #666;
+                font-size: 12px;
+            }
+
+            .item-price {
+                color: #1890ff;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .amount-details {
+        .amount-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            color: #666;
+
+            &.total {
+                margin-top: 8px;
+                padding-top: 8px;
+                border-top: 1px solid #f0f0f0;
+                font-weight: 500;
+                color: #333;
+
+                .value {
+                    color: #1890ff;
+                    font-size: 16px;
+                }
+            }
+
+            .label {
+                margin-right: 8px;
+            }
+
+            .value {
+                font-weight: 500;
+            }
+        }
+    }
+}

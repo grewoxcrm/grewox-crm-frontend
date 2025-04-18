@@ -1,0 +1,227 @@
+@import '../../../styles/theme/theme.scss';
+
+.superadmin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: white;
+    height: 70px;
+    border-bottom: 1px solid $border-color;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 260px); // Match main content width
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba($primary-color, 0.05);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); // Match sidebar transition
+
+    .header-left {
+        h1 {
+            font-size: 1.25rem;
+            color: $primary-color;
+            margin: 0;
+            font-weight: 600;
+        }
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+
+        .search-container {
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 16px;
+            width: 320px;
+            z-index: 1001;
+
+            .search-input {
+                width: 100%;
+                height: 40px;
+                border-radius: 20px;
+                background: #fff;
+                border: 1px solid #e8e8e8;
+                padding: 0 16px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    border-color: #1890ff;
+                    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+                }
+
+                .ant-input-prefix {
+                    color: #8c8c8c;
+                    margin-right: 8px;
+                }
+            }
+
+            .search-results {
+                position: absolute;
+                top: calc(100% + 8px);
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+                max-height: 400px;
+                overflow-y: auto;
+                z-index: 1002;
+                border: 1px solid #e8e8e8;
+
+                .ant-list {
+                    padding: 4px 0;
+                }
+
+                .search-result-item {
+                    padding: 8px 16px;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background: #f5f5f5;
+                    }
+
+                    .search-result-content {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+
+                        .search-result-title {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+
+                            .ant-typography {
+                                margin: 0;
+
+                                &.ant-typography-secondary {
+                                    color: #8c8c8c;
+                                    font-size: 12px;
+                                    margin-left: 8px;
+                                }
+                            }
+                        }
+
+                        .search-result-arrow {
+                            color: #8c8c8c;
+                            opacity: 0;
+                            transition: all 0.2s ease;
+                        }
+                    }
+
+                    &:hover .search-result-arrow {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .action-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border: none;
+                background: none;
+                border-radius: 50%;
+                color: $text-color;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                position: relative;
+
+                &:hover,
+                &.active {
+                    background: rgba($primary-color, 0.05);
+                    color: $primary-color;
+                }
+
+                svg {
+                    font-size: 1.25rem;
+                }
+            }
+
+            // Badge styles
+            .ant-badge {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .ant-badge-count {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translate(25%, -25%);
+                    background: $error-color;
+                    box-shadow: 0 0 0 2px white;
+                    font-size: 0.75rem;
+                    padding: 0 4px;
+                    min-width: 18px;
+                    height: 18px;
+                    line-height: 18px;
+                    border-radius: 9px;
+                }
+            }
+
+            // User avatar styles
+            .user-avatar {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .ant-avatar {
+                    background: $primary-color;
+                    color: white;
+                    font-weight: 500;
+                    border: 2px solid transparent;
+                    transition: all 0.2s ease;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 36px;
+                    font-size: 1rem;
+
+                    &:hover {
+                        border-color: rgba($primary-color, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Adjust for collapsed sidebar
+.superadmin-sidebar.collapsed~.main-content .superadmin-header {
+    width: calc(100% - 70px); // Match collapsed main content width
+}
+
+// Improve tooltips
+.ant-tooltip {
+    .ant-tooltip-inner {
+        background-color: rgba($text-color, 0.85);
+        backdrop-filter: blur(4px);
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+
+    .ant-tooltip-arrow {
+        &::before {
+            background-color: rgba($text-color, 0.85);
+        }
+    }
+}

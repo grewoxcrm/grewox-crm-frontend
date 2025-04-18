@@ -1,0 +1,108 @@
+.crm-system-setup {
+  display: flex;
+  height: 100%;
+  background-color: #f8f9fa;
+
+  .crm-sidebar {
+    width: 250px;
+    background: white;
+    border-right: 1px solid rgba(24, 144, 255, 0.1);
+    padding: 20px 0;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    .sidebar-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 12px;
+
+      .sidebar-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: #495057;
+
+        &:hover {
+          background: rgba(#2563eb, 0.04);
+          color: #2563eb;
+          transform: translateX(2px);
+        }
+
+        &.active {
+          background: rgba(#2563eb, 0.08);
+          color: #2563eb;
+          font-weight: 500;
+
+          .icon {
+            color: #2563eb;
+          }
+        }
+
+        .icon {
+          margin-right: 12px;
+          font-size: 18px;
+          opacity: 0.8;
+        }
+
+        .title {
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .content-area {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1a1f36;
+        margin: 0;
+      }
+
+      .add-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: darken(#2563eb, 5%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+      }
+    }
+
+    .content-body {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      min-height: 500px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+  }
+}

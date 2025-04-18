@@ -1,0 +1,289 @@
+// .overview-content {
+//     .info-card {
+//         margin-bottom: 24px;
+        
+//         .ant-descriptions {
+//             margin-top: 16px;
+//         }
+
+//         .icon {
+//             margin-right: 8px;
+//             color: #1890ff;
+//         }
+
+//         &.contact-card {
+//             .profile-header {
+//                 margin-bottom: 24px;
+
+//                 .profile-main {
+//                     display: flex;
+//                     align-items: center;
+//                     gap: 16px;
+
+//                     .company-avatar {
+//                         width: 64px;
+//                         height: 64px;
+//                         border-radius: 12px;
+//                         background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+//                         display: flex;
+//                         align-items: center;
+//                         justify-content: center;
+//                         font-size: 24px;
+//                         font-weight: 600;
+//                         color: white;
+//                     }
+
+//                     .profile-info {
+//                         .company-name {
+//                             margin: 0;
+//                             font-size: 20px;
+//                             font-weight: 600;
+//                             color: #262626;
+//                         }
+
+//                         .contact-name {
+//                             display: flex;
+//                             align-items: center;
+//                             gap: 8px;
+//                             margin-top: 4px;
+//                             color: #8c8c8c;
+//                             font-size: 14px;
+
+//                             .icon {
+//                                 font-size: 16px;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+
+//             .profile-stats {
+//                 display: grid;
+//                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+//                 gap: 24px;
+
+//                 .stat-item {
+//                     display: flex;
+//                     align-items: flex-start;
+//                     gap: 12px;
+
+//                     .stat-icon {
+//                         width: 40px;
+//                         height: 40px;
+//                         border-radius: 8px;
+//                         background: #f5f5f5;
+//                         display: flex;
+//                         align-items: center;
+//                         justify-content: center;
+//                         color: #1890ff;
+//                         font-size: 20px;
+//                     }
+
+//                     .stat-content {
+//                         flex: 1;
+
+//                         .stat-label {
+//                             font-size: 14px;
+//                             color: #8c8c8c;
+//                             margin-bottom: 4px;
+//                         }
+
+//                         .stat-value {
+//                             font-size: 16px;
+//                             color: #262626;
+//                             font-weight: 500;
+
+//                             &:hover {
+//                                 color: #1890ff;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .metrics-row {
+//         margin-bottom: 24px;
+
+//         .metric-card {
+//             height: 100%;
+//             border-radius: 12px;
+//             transition: all 0.3s ease;
+
+//             &:hover {
+//                 transform: translateY(-4px);
+//                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//             }
+
+//             .metric-icon {
+//                 width: 48px;
+//                 height: 48px;
+//                 border-radius: 12px;
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 margin-bottom: 16px;
+//                 font-size: 24px;
+//                 transition: all 0.3s ease;
+//             }
+
+//             .metric-content {
+//                 .metric-label {
+//                     font-size: 14px;
+//                     color: #8c8c8c;
+//                     margin-bottom: 8px;
+//                 }
+
+//                 .metric-value {
+//                     font-size: 20px;
+//                     font-weight: 600;
+//                     color: #262626;
+//                 }
+//             }
+
+//             &.revenue-card .metric-icon {
+//                 background: #e6f7ff;
+//                 color: #1890ff;
+//             }
+
+//             &.type-card .metric-icon {
+//                 background: #fff7e6;
+//                 color: #fa8c16;
+//             }
+
+//             &.created-date-card .metric-icon {
+//                 background: #f6ffed;
+//                 color: #52c41a;
+//             }
+
+//             &.employees-card .metric-icon {
+//                 background: #fff0f6;
+//                 color: #eb2f96;
+//             }
+//         }
+//     }
+
+//     .company-details-section {
+//         .detail-card {
+//             background: #fff;
+//             border-radius: 12px;
+//             padding: 24px;
+//             height: 100%;
+//             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+//             transition: all 0.3s ease;
+
+//             &:hover {
+//                 transform: translateY(-4px);
+//                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+//             }
+
+//             .detail-content {
+//                 display: flex;
+//                 align-items: center;
+//                 gap: 16px;
+//                 position: relative;
+
+//                 .detail-icon {
+//                     width: 40px;
+//                     height: 40px;
+//                     border-radius: 8px;
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: center;
+//                     font-size: 20px;
+//                 }
+
+//                 .detail-info {
+//                     flex: 1;
+
+//                     .detail-label {
+//                         font-size: 14px;
+//                         color: #8c8c8c;
+//                         margin-bottom: 4px;
+//                     }
+
+//                     .detail-value {
+//                         font-size: 16px;
+//                         color: #262626;
+//                         font-weight: 500;
+//                     }
+//                 }
+
+//                 .detail-indicator {
+//                     position: absolute;
+//                     top: -24px;
+//                     left: 0;
+//                     right: 0;
+//                     height: 3px;
+//                     border-radius: 3px 3px 0 0;
+//                 }
+//             }
+
+//             &.industry-card {
+//                 .detail-icon {
+//                     background: #e6f7ff;
+//                     color: #1890ff;
+//                 }
+//                 .detail-indicator {
+//                     background: #1890ff;
+//                 }
+//             }
+
+//             &.category-card {
+//                 .detail-icon {
+//                     background: #fff7e6;
+//                     color: #fa8c16;
+//                 }
+//                 .detail-indicator {
+//                     background: #fa8c16;
+//                 }
+//             }
+
+//             &.ownership-card {
+//                 .detail-icon {
+//                     background: #f6ffed;
+//                     color: #52c41a;
+//                 }
+//                 .detail-indicator {
+//                     background: #52c41a;
+//                 }
+//             }
+
+//             &.fax-card {
+//                 .detail-icon {
+//                     background: #fff0f6;
+//                     color: #eb2f96;
+//                 }
+//                 .detail-indicator {
+//                     background: #eb2f96;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// // Responsive styles
+// @media (max-width: 768px) {
+//     .overview-content {
+//         .info-card.contact-card {
+//             .profile-stats {
+//                 grid-template-columns: 1fr;
+//                 gap: 16px;
+//             }
+//         }
+
+//         .metrics-row {
+//             .metric-card {
+//                 margin-bottom: 16px;
+//             }
+//         }
+
+//         .company-details-section {
+//             .detail-card {
+//                 margin-bottom: 16px;
+//             }
+//         }
+//     }
+// }
+

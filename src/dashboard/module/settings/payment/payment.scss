@@ -1,0 +1,218 @@
+@import '../../../../styles/theme/theme.scss';
+
+.payment-settings-page {
+  padding: 24px;
+  background: $background-color;
+
+  .page-breadcrumb {
+    margin-bottom: 16px;
+
+    .ant-breadcrumb {
+      font-size: 14px;
+
+      .ant-breadcrumb-link {
+        color: #64748b;
+        transition: all 0.3s ease;
+
+        a {
+          color: #64748b;
+          display: inline-flex;
+          align-items: center;
+
+          &:hover {
+            color: #1677ff;
+          }
+        }
+
+        &:last-child {
+          color: #1e293b;
+          font-weight: 500;
+        }
+      }
+
+      .ant-breadcrumb-separator {
+        margin: 0 8px;
+        color: #64748b;
+      }
+    }
+  }
+
+  .page-header {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    background: white;
+    padding: 24px 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.08);
+
+    .page-title {
+      text-align: left;
+      margin-bottom: 0;
+      flex-shrink: 0;
+
+      h2 {
+        color: #1e293b;
+        margin-bottom: 4px;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .ant-typography-secondary {
+        color: #64748b;
+        font-size: 15px;
+        display: block;
+      }
+    }
+  }
+
+  .page-contents {
+    .gateway-card {
+      height: 100%;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+      .card-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title-section {
+          .ant-typography {
+            margin: 0;
+            color: #1e293b;
+            font-weight: 600;
+          }
+        }
+
+        .action-section {
+          .gateway-switch {
+            &.ant-switch-checked {
+              background: #3b82f6;
+            }
+          }
+        }
+      }
+
+      .card-content {
+        padding: 20px;
+
+        .ant-form-item {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .ant-form-item-label {
+            padding-bottom: 8px;
+
+            label {
+              color: #475569;
+              font-size: 14px;
+              font-weight: 500;
+            }
+          }
+
+          .settings-input {
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            padding: 8px 12px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+
+            &:hover:not(:disabled) {
+              border-color: #3b82f6;
+            }
+
+            &:focus:not(:disabled) {
+              border-color: #3b82f6;
+              box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+            }
+
+            &:disabled {
+              background-color: #f1f5f9;
+              color: #94a3b8;
+              cursor: not-allowed;
+            }
+
+            &::placeholder {
+              color: #94a3b8;
+            }
+          }
+
+          .ant-input-password {
+            background: transparent;
+            
+            .ant-input {
+              background: transparent;
+              
+              &:disabled {
+                background-color: #f1f5f9;
+              }
+            }
+
+            &.ant-input-affix-wrapper-disabled {
+              background-color: #f1f5f9;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-actions {
+      margin-top: 24px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: flex-end;
+
+      .save-button {
+        background: #3b82f6;
+        border: none;
+        padding: 8px 24px;
+        height: 40px;
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &:hover {
+          background: #2563eb;
+        }
+
+        .anticon {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    padding: 16px;
+
+    .page-header {
+      margin: 0 0 16px;
+      padding: 20px;
+    }
+
+    .page-contents {
+      .ant-row {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

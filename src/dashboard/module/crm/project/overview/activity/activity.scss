@@ -1,0 +1,133 @@
+.project-activity {
+    .ant-card {
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+        .ant-card-head {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 16px 24px;
+
+            .ant-card-head-title {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+
+        .ant-card-body {
+            padding: 24px;
+        }
+    }
+
+    .ant-timeline {
+        .timeline-dot {
+            font-size: 16px;
+            background: #ffffff;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid currentColor;
+        }
+
+        .ant-timeline-item {
+            padding-bottom: 32px;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            .ant-timeline-item-tail {
+                left: 16px;
+                border-left: 2px solid #f0f0f0;
+            }
+
+            .ant-timeline-item-head {
+                background: transparent;
+                width: 32px;
+                height: 32px;
+                border: none;
+            }
+
+            .ant-timeline-item-content {
+                margin-left: 48px;
+                min-height: auto;
+            }
+        }
+    }
+
+    .activity-item {
+        background: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #f0f0f0;
+        padding: 16px;
+
+        .activity-content {
+            .activity-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+
+                .ant-tag {
+                    margin: 0;
+                    font-weight: 500;
+                    border-radius: 4px;
+                    padding: 2px 8px;
+                    font-size: 12px;
+                }
+
+                h4 {
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #1f2937;
+                }
+            }
+
+            .activity-meta {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                color: #6b7280;
+                font-size: 13px;
+
+                .user-info,
+                .timestamp {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    svg {
+                        font-size: 16px;
+                    }
+
+                    .ant-avatar {
+                        margin: 0 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+    .project-activity {
+        .activity-item {
+            .activity-content {
+                .activity-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 8px;
+                }
+
+                .activity-meta {
+                    flex-direction: column;
+                    gap: 8px;
+                }
+            }
+        }
+    }
+}
