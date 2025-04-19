@@ -33,7 +33,7 @@ export default function ResendVerification() {
                 >
                     <div className="brand">
                         <FiLock className="logo" />
-                        <span className="brand-name">Work Software</span>
+                        <span className="brand-name">Grewox CRM</span>
                     </div>
                     <motion.img
                         src={form_graphic}

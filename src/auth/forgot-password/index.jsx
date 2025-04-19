@@ -157,7 +157,7 @@ export default function ForgotPassword() {
                 >
                     <div className="brand">
                         <FiBox className="logo" />
-                        <span className="brand-name">Work Software</span>
+                        <span className="brand-name">Grewox CRM</span>
                     </div>
                     <motion.img
                         src={form_graphic}

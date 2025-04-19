@@ -186,12 +186,12 @@ const Sidebar = ({ collapsed = false, onCollapsedChange = () => { }, rolesData, 
         //   path: "/dashboard/crm/company-inquiry",
         //   permission: "dashboards-inquiry"
         // },
-        {
-          title: "Proposal",
-          icon: <FiFileText />,
-          path: "/dashboard/crm/proposal",
-          permission: "dashboards-proposal"
-        },
+        // {
+        //   title: "Proposal",
+        //   icon: <FiFileText />,
+        //   path: "/dashboard/crm/proposal",
+        //   permission: "dashboards-proposal"
+        // },
         {
           title: "Task",
           icon: <FiCheckSquare />,
@@ -314,12 +314,7 @@ const Sidebar = ({ collapsed = false, onCollapsedChange = () => { }, rolesData, 
           path: "/dashboard/communication/chat",
 
         },
-        {
-          title: "Calendar",
-          icon: <FiCalendar />,
-          path: "/dashboard/communication/calendar",
-
-        },
+        
       ].filter(item => shouldShowMenuItem(item)),
     },
     {
@@ -387,6 +382,12 @@ const Sidebar = ({ collapsed = false, onCollapsedChange = () => { }, rolesData, 
           icon: <FiVideo />,
           path: "/dashboard/hrm/meeting",
           permission: "extra-hrm-meeting"
+        },
+        {
+          title: "Calendar",
+          icon: <FiCalendar />,
+          path: "/dashboard/communication/calendar",
+
         },
         {
           title: "Announcement",
