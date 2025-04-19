@@ -52,8 +52,8 @@ export default function Dashboard() {
 
   // Dummy revenue data
   const dummyRevenue = {
-    total: 450000,
-    pending: 171000,
+    total: 0,
+    pending: 0,
     symbol: '₹'
   };
 
@@ -76,13 +76,13 @@ export default function Dashboard() {
   const stats = [
     {
       title: "Companies",
-      value: 500,
+      value: 0,
       description: "Total companies",
       icon: <FiUsers className="stats-icon" />,
       gradient: "linear-gradient(145deg, #ffffff, #f0f2ff)",
       iconGradient: "linear-gradient(135deg, #7c3aed, #a78bfa)",
       color: "#7c3aed",
-      tag: "Active: 500",
+      tag: "Active: 0",
       link: "/dashboard/crm/companies"
     },
     {
