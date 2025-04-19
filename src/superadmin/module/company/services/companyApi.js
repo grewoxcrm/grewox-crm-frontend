@@ -60,25 +60,31 @@ export const companyApi = createApi({
             invalidatesTags: ['Companies', 'Subscriptions'],
         }),
         verifySignup: builder.mutation({
-            query: ({ otp, token }) => ({
-                url: '/auth/verify-signup',
-                method: 'POST',
-                body: { otp },
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }),
+            query: ({ otp }) => {
+                const token = localStorage.getItem('verificationToken');
+                return {
+                    url: '/auth/verify-signup',
+                    method: 'POST',
+                    body: { otp },
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                };
+            },
             invalidatesTags: ['Companies']
         }),
 
         resendSignupOtp: builder.mutation({
-            query: ({ token }) => ({
-                url: '/auth/resend-signup-otp',
-                method: 'POST',
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
+            query: () => {
+                const token = localStorage.getItem('verificationToken');
+                return {
+                    url: '/auth/resend-signup-otp',
+                    method: 'POST',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                };
+            }
         }),
     }),
 });
